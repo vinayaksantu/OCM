@@ -1119,6 +1119,7 @@ public class FaxTemplatePage extends BasePage{
 
 	public void Revert(String comments) throws Exception {
 		selectWebElement(revertBtn);
+		Thread.sleep(2000);
 		enterValueToTxtField(revertMakerComments,comments);
 		selectWebElement(revertSubmitMakerComments);				
 	}
@@ -1335,6 +1336,7 @@ public class FaxTemplatePage extends BasePage{
 		}
 		selectRecord();
 		clickOn(approveBtn);
+		Thread.sleep(1000);
 		selectWebElement(checkerReason);
 		enterValueToTxtFieldWithoutClear(checkerReason,comment);
 		try {

@@ -698,6 +698,18 @@ public class AgentTeamManagementPage extends BasePage {
 		else
 			return false;
 	}
+	
+	public boolean verifyMYSQLDatabase(String query) throws Exception {
+		List<Map<String,String>> database=mysqlLdatabase(query);
+		System.out.println(database);	
+		selectWebElement(name);
+		List<Map<String,String>> UI=gettable(); 
+		System.out.println(UI);
+		if(UI.equals(database))
+			return true;
+		else
+			return false;
+	}
 
 	private List<Map<String,String>> gettable() throws Exception{
 		Thread.sleep(4000);
@@ -715,7 +727,7 @@ public class AgentTeamManagementPage extends BasePage {
 			String col=null;
 			for(int j=1;j<headers.size();j++){
 				if(headers.get(j).getText().equals("Last Changed On")){
-					col=cols.get(j).getText().substring(11);
+					col=cols.get(j).getText();
 					}
 				else
 					col=cols.get(j).getText();

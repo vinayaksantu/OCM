@@ -525,6 +525,7 @@ public class ChatTemplatesPage extends BasePage {
         waitUntilWebElementListIsClickable(tabList);
         for(WebElement ele:tabList){
             if(ele.getText().equalsIgnoreCase(tabname)){ele.click();break;}
+            waitForJqueryLoad(driver);
         }
     }
     public void addNewDepartmentRecord(ChatTemplateDetails details) throws Exception {

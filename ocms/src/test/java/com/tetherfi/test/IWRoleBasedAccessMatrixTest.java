@@ -85,7 +85,7 @@ public class IWRoleBasedAccessMatrixTest extends BaseTest {
 		Assert.assertEquals(iWRoleBasedAccessMatrixPage.VerifyMessage(), "No rows has been changed", "VerifySaveChangesButtonwithoutUpdate Assertion Failed");
 	}
 	
-	@Test(priority=8,description="Navigate to IW")
+	/*@Test(priority=8,description="Navigate to IW")
 	public void NavigateTOIW()  {
         try {
         	LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
@@ -110,7 +110,7 @@ public class IWRoleBasedAccessMatrixTest extends BaseTest {
 		IWRoleBasedAccessMatrixPage iWRoleBasedAccessMatrixPage=PageFactory.createPageInstance(driver,IWRoleBasedAccessMatrixPage.class);
 		iWRoleBasedAccessMatrixPage.ADDNewIWCallFlow(iWRoleBasedAccessMatrixDetails);
 		Assert.assertEquals(iWRoleBasedAccessMatrixPage.VerifySuccessMessage(), "DNIS details saved/updated.\nX", "Add Schedule With with valid Assertion Failed");
-	}*/
+	}
 	
 	@Test(priority=10,description="To Verify IW Reflection when copy CheckBox Unchecked")
 	public void VerifyCopyCheckBoxWhenUncheckedInOCMwitIW() throws Exception {
@@ -274,7 +274,7 @@ public class IWRoleBasedAccessMatrixTest extends BaseTest {
 		Assert.assertTrue(iWRoleBasedAccessMatrixPage.VerifyBuildCallFlowCheckBoxUnchecked(iWRoleBasedAccessMatrixDetails), "VerifyCopyCheckBoxWhenUncheckedwitIW Assertion Failed");
 		iWRoleBasedAccessMatrixPage.BuildCallFlowInIW(iWRoleBasedAccessMatrixDetails);
 		Assert.assertEquals(iWRoleBasedAccessMatrixPage.VerifyErrorMessage(), "Cannot build this callflow. Current callflow is in readonly state\nX", "VerifyCopyCheckBoxWhenUncheckedwitIW Assertion Failed");
-	}
+	}*/
 	
 	@Test(priority=27,description="To Verify Group By Coloumn Header and Group Already Grouped coloumn")
 	public void verifyGroupBy() {

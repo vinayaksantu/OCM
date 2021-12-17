@@ -65,7 +65,7 @@ public class FaxRoutingConfigurationTest extends BaseTest{
 		Assert.assertTrue(faxRoutingConfigurationPage.isFaxRoutingConfigurationPageDisplayed(), "FAX page assertion failed");
 	}
 
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void FaxRoutingConfigurationPage() {
 		FaxRoutingConfigurationPage faxRoutingConfigurationPage = PageFactory.createPageInstance(driver, FaxRoutingConfigurationPage.class);
 		Assert.assertTrue(faxRoutingConfigurationPage.verifylogo(),"FaxLineConfig logo assertion failed");
@@ -91,7 +91,7 @@ public class FaxRoutingConfigurationTest extends BaseTest{
 	public void VerifyColumnsHeaderDisable() {
 		FaxRoutingConfigurationPage faxRoutingConfigurationPage = PageFactory.createPageInstance(driver, FaxRoutingConfigurationPage.class);
 		Assert.assertFalse(faxRoutingConfigurationPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-	}
+	}*/
 
 	@Test(priority=5)
 	public void AddFaxRoutingConfigQueueRecord() throws Exception {
@@ -229,7 +229,7 @@ public class FaxRoutingConfigurationTest extends BaseTest{
 		Assert.assertEquals(faxRoutingConfigurationPage.getSuccessMessage(),"Record Updated Successfully");
 	}
 
-	@Test(priority=17)
+	/*@Test(priority=17)
 	public void searchPage() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxRoutingConfigData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -249,7 +249,7 @@ public class FaxRoutingConfigurationTest extends BaseTest{
 		FaxRoutingConfigurationPage faxRoutingConfigurationPage = PageFactory.createPageInstance(driver, FaxRoutingConfigurationPage.class);
 		faxRoutingConfigurationPage.searchwithoutextsearch(faxRoutingConfigDetails);
 		Assert.assertFalse(faxRoutingConfigurationPage.getErrorMsg());
-	}
+	}*/
 
 	@Test(priority=19)
 	public void database() throws Exception {
@@ -291,7 +291,7 @@ public class FaxRoutingConfigurationTest extends BaseTest{
 	}
 
 
-	@Test(priority=23)
+	//@Test(priority=23)
 	public void SearchClearSearch() throws Exception
 	{
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxRoutingConfigData.xlsx";
@@ -320,7 +320,7 @@ public class FaxRoutingConfigurationTest extends BaseTest{
 	Assert.assertTrue(faxRoutingConfigurationPage.verifyexportToExcelSheet(maplist));	
 	}
 
-	@Test(priority=26)
+	/*@Test(priority=26)
 	public void ExporttoExcelWithoutData() throws Exception
 	{
 		FaxRoutingConfigurationPage faxRoutingConfigurationPage = PageFactory.createPageInstance(driver, FaxRoutingConfigurationPage.class);
@@ -380,7 +380,7 @@ public class FaxRoutingConfigurationTest extends BaseTest{
 	public void VerifyNumberOfItemsPerPageSelection() {
 		FaxRoutingConfigurationPage faxRoutingConfigurationPage = PageFactory.createPageInstance(driver, FaxRoutingConfigurationPage.class);
 		Assert.assertTrue(faxRoutingConfigurationPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
-	}
+	}*/
 
 	@Test(priority=34)
 	public void DeleteFaxRoutingConfigFolderRecord() throws Exception {

@@ -464,6 +464,16 @@ public class BasePage {
 		return dbdata;
 	}
     
+    public List<Map<String,String>> mysqlLdatabase(String query) {
+		DatabaseConnector dc=new DatabaseConnector();
+		dc.connectToDataBase(Constants.db_name);
+		ResultSet rs=dc.executeQuery(query);
+		List<Map<String,String>> dbdata=dc.getResultSetInMapForMySQL(rs);
+//		rs.close();
+		dc.closeDbConnection();
+		return dbdata;
+	}
+    
     public void InsertQuery(String Query) {
     	DatabaseConnector dc=new DatabaseConnector();
 		dc.connectToDataBase(Constants.db_name);

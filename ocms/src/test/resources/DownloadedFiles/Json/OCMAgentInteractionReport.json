@@ -2,7 +2,7 @@
   "JsonVersioningDetails": {
     "FileName": "OCMAgentInteractionReport.json",
     "Location": "Reports",
-    "Version": "4.0.8.6",
+    "Version": "4.0.10.30",
     "LastModifiedDateTime": "06-11-2020 08:30:00 AM",
     "LastModifiedBy": "Shruthi",
     "Description": "Pagination, Search and Sort by using ORM"
@@ -58,7 +58,7 @@
           "DataFormatType": "varchar"
         },
         {
-          "Title": "Team Name", // display name
+          "Title": "Org.Unit", // display name
           "PropertyName": "TeamName", // property name as in database/query
           "IncludeInReport": false, // IncludeInReport = false, if column to be included in report/export else false
           "IncludeInMenu": false, //Includeinmenu = false, if column should be include in kendo grid menu else false
@@ -107,7 +107,7 @@
           "PropertyName": "Ani",
           "IncludeInReport": true,
           "IncludeInMenu": true,
-          "Hidden": false,
+          "Hidden": true,
           "ClientTemplate": "",
           "DataFormatType": "number"
         },
@@ -125,7 +125,7 @@
           "PropertyName": "CreatedDateTime",
           "IncludeInReport": true,
           "IncludeInMenu": true,
-          "Hidden": false,
+          "Hidden": true,
           "ClientTemplate": "",
           "DataFormatType": "datetime"
         },
@@ -143,7 +143,7 @@
           "PropertyName": "QueueTime",
           "IncludeInReport": true,
           "IncludeInMenu": true,
-          "Hidden": false,
+          "Hidden": true,
           "ClientTemplate": "",
           "DataFormatType": "time"
         },
@@ -152,7 +152,7 @@
           "PropertyName": "ActiveTime",
           "IncludeInReport": true,
           "IncludeInMenu": true,
-          "Hidden": false,
+          "Hidden": true,
           "ClientTemplate": "",
           "DataFormatType": "time"
         },
@@ -170,7 +170,7 @@
           "PropertyName": "ACWTime",
           "IncludeInReport": true,
           "IncludeInMenu": true,
-          "Hidden": false,
+          "Hidden": true,
           "ClientTemplate": "",
           "DataFormatType": "time"
         },
@@ -215,7 +215,7 @@
           "PropertyName": "SubChannel",
           "IncludeInReport": true,
           "IncludeInMenu": true,
-          "Hidden": false,
+          "Hidden": true,
           "ClientTemplate": "",
           "DataFormatType": "varchar"
         },
@@ -224,7 +224,7 @@
           "PropertyName": "SubSessionID",
           "IncludeInReport": true,
           "IncludeInMenu": true,
-          "Hidden": false,
+          "Hidden": true,
           "ClientTemplate": "",
           "DataFormatType": "varchar"
         },
@@ -233,7 +233,7 @@
           "PropertyName": "InteractionID",
           "IncludeInReport": true,
           "IncludeInMenu": true,
-          "Hidden": false,
+          "Hidden": true,
           "ClientTemplate": "",
           "DataFormatType": "number"
         },
@@ -242,7 +242,7 @@
           "PropertyName": "Skill",
           "IncludeInReport": true,
           "IncludeInMenu": true,
-          "Hidden": false,
+          "Hidden": true,
           "ClientTemplate": "",
           "DataFormatType": "varchar"
         },
@@ -251,7 +251,7 @@
           "PropertyName": "SkillName",
           "IncludeInReport": true,
           "IncludeInMenu": true,
-          "Hidden": false,
+          "Hidden": true,
           "ClientTemplate": "",
           "DataFormatType": "varchar"
         },
@@ -260,7 +260,7 @@
           "PropertyName": "DNISName",
           "IncludeInReport": true,
           "IncludeInMenu": true,
-          "Hidden": false,
+          "Hidden": true,
           "ClientTemplate": "",
           "DataFormatType": "varchar"
         },
@@ -269,7 +269,7 @@
           "PropertyName": "TransferedTo",
           "IncludeInReport": true,
           "IncludeInMenu": true,
-          "Hidden": false,
+          "Hidden": true,
           "ClientTemplate": "",
           "DataFormatType": "varchar"
         },
@@ -278,7 +278,7 @@
           "PropertyName": "ConferencedTo",
           "IncludeInReport": true,
           "IncludeInMenu": true,
-          "Hidden": false,
+          "Hidden": true,
           "ClientTemplate": "",
           "DataFormatType": "varchar"
         },
@@ -287,7 +287,7 @@
           "PropertyName": "ConferenceToAgentList",
           "IncludeInReport": true,
           "IncludeInMenu": true,
-          "Hidden": false,
+          "Hidden": true,
           "ClientTemplate": "",
           "DataFormatType": "varchar"
         },
@@ -296,7 +296,7 @@
           "PropertyName": "TransferToAgent",
           "IncludeInReport": true,
           "IncludeInMenu": true,
-          "Hidden": false,
+          "Hidden": true,
           "ClientTemplate": "",
           "DataFormatType": "varchar"
         },
@@ -305,7 +305,7 @@
           "PropertyName": "TransferConferenceFromAgent",
           "IncludeInReport": true,
           "IncludeInMenu": true,
-          "Hidden": false,
+          "Hidden": true,
           "ClientTemplate": "",
           "DataFormatType": "number"
         },
@@ -314,7 +314,7 @@
           "PropertyName": "TransferConferenceFromInteraction",
           "IncludeInReport": true,
           "IncludeInMenu": true,
-          "Hidden": false,
+          "Hidden": true,
           "ClientTemplate": "",
           "DataFormatType": "number"
         },
@@ -332,7 +332,7 @@
           "PropertyName": "ClosedDateTime",
           "IncludeInReport": true,
           "IncludeInMenu": true,
-          "Hidden": false,
+          "Hidden": true,
           "ClientTemplate": "",
           "DataFormatType": "datetime"
         },
@@ -350,7 +350,7 @@
           "PropertyName": "ClosedReason",
           "IncludeInReport": true,
           "IncludeInMenu": true,
-          "Hidden": false,
+          "Hidden": true,
           "ClientTemplate": "",
           "DataFormatType": "varchar"
         },

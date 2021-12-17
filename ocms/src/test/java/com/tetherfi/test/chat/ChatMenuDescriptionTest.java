@@ -40,7 +40,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
         Assert.assertTrue(chatMenuDescriptionPage.isChatMenuDescriptionPageDisplayed(),"Chat Menu Description page assertion failed");
     }
     
-   @Test(priority=1)
+  /* @Test(priority=1)
 	public void ChatMenuDescriptionPage() {
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
         Assert.assertTrue(ChatMenuDescriptionPage.VerifyLogo(),"Logo assertion failed");
@@ -66,7 +66,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
     public void VerifyColumnsHeaderDisable() {
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
         Assert.assertFalse(ChatMenuDescriptionPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-    }
+    }*/
     
     @Test(priority=5)
     public void AddNewChatMenuDescriptionRecord() throws Exception {
@@ -151,7 +151,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
         Assert.assertFalse(ChatMenuDescriptionPage.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");
 	}
     
-    @Test(priority=13)
+    /*@Test(priority=13)
     public void VerifySearchIsNotEqualTo() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -194,7 +194,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
         ChatMenuDescriptionDetails chatMenuDescriptionDetails=new ChatMenuDescriptionDetails(map);
         ChatMenuDescriptionPage chatMenuDescriptionPage = PageFactory.createPageInstance(driver,ChatMenuDescriptionPage.class);
         Assert.assertTrue(chatMenuDescriptionPage.verifySearchEndsWith(chatMenuDescriptionDetails.getMenuName()));
-    }
+    }*/
     
     @Test(priority=18)//,dependsOnMethods = "AddNewChatMenuDescriptionRecord")
     public void EditChatMenuDescriptionRecord() throws Exception {
@@ -242,7 +242,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
         Assert.assertFalse(ChatMenuDescriptionPage.verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
     }
     
-    @Test(priority=22)
+    /*@Test(priority=22)
     public void searchPage() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -258,7 +258,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
         ChatMenuDescriptionPage.searchwithoutextsearch();
         Assert.assertEquals(ChatMenuDescriptionPage.getMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
-    }
+    }*/
     
     @Test(priority=24)
     public void ExportToExcel() throws Exception
@@ -319,7 +319,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyChatMenuDescriptiondelete(chatMenuDescriptionDetails,"Delete"));
     }
     
-    @Test(priority=30)
+   /* @Test(priority=30)
     public void SearchClearSearch() throws Exception
     {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
@@ -391,7 +391,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
     public void VerifyNumberOfItemsPerPageSelection() {
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
         Assert.assertTrue(ChatMenuDescriptionPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
-    }
+    }*/
     
     @Test(priority=39)
     public void database() throws Exception {

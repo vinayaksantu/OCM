@@ -13,7 +13,7 @@ public class ChatPage extends BasePage {
     private List<WebElement> navTabs;
 
     @FindBy(css="a[href$='/ChatTemplates/Index']")
-    private WebElement chatTemplates;
+    private WebElement textTemplates;
 
     @FindBy(css="a[href$='/IvrCallback/Index']")
     private WebElement callBackMgmt;
@@ -43,8 +43,12 @@ public class ChatPage extends BasePage {
         }
         return status;
     }
-    public void navigateToChatTemplatesPage(){
-        selectWebElement(chatTemplates);
+    /*public void navigateToChatTemplatesPage(){
+        selectWebElement(textTemplates);
+    }*/
+    
+    public void navigateToTextTemplatesPage(){
+        selectWebElement(textTemplates);
     }
     public void navigateToCallBackMgmtPage(){
         waitUntilWebElementIsClickable(callBackMgmt);

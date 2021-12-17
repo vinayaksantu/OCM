@@ -36,7 +36,7 @@ public class ChatTemplatesTest extends BaseTest {
 		ocmHomePage.navigateToTab("Chat");
 		ChatPage chatPage = PageFactory.createPageInstance(driver,ChatPage.class);
 		Assert.assertTrue(chatPage.isChatPageDisplayed(),"chat page assertion failed");
-		chatPage.navigateToChatTemplatesPage();
+		chatPage.navigateToTextTemplatesPage();
 		ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
 		Assert.assertTrue(chatTemplatesPage.isChatTemplatePageDisplayed(),"Chat Template page assertion failed");		
 	}

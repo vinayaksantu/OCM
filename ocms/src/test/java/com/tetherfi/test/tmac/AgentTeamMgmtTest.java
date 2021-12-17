@@ -41,7 +41,7 @@ public class AgentTeamMgmtTest extends BaseTest {
         Assert.assertTrue(agentTeamManagementPage.isAgentTeamManagementPageDisplayed(),"Agent Team Management Page assertion failed");
     }
     
-    @Test(priority=1)
+    /*@Test(priority=1)
     public void AgentTeamManagementPage()
     {
     	AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
@@ -269,9 +269,9 @@ public class AgentTeamMgmtTest extends BaseTest {
     AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
     Assert.assertTrue(agentTeamManagementPage.verifyexportToExcelSheet(maplist));
     	
-    }
-    
-    @Test(priority=25)
+    }*/
+     
+    @Test(priority=25,enabled=false)
     public void database() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
@@ -280,7 +280,16 @@ public class AgentTeamMgmtTest extends BaseTest {
     	Assert.assertTrue(agentTeamManagementPage.verifyDatabase(agentTeamMgmtDetails.getQuery()));
     }
     
-    @Test(priority=26)
+    @Test(priority=25)
+    public void MySQLdatabase() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"MySQL").getTestData().get(0);
+    	AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
+    	AgentTeamMgmtDetails agentTeamMgmtDetails=new AgentTeamMgmtDetails(map);
+    	Assert.assertTrue(agentTeamManagementPage.verifyMYSQLDatabase(agentTeamMgmtDetails.getQuery()));
+    }
+    
+    /*@Test(priority=26)
     public void GroupBy()
     {
     	AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
@@ -396,7 +405,7 @@ public class AgentTeamMgmtTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map2);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyAgentTeamMgmtdelete(agentTeamMgmtDetails,"Delete"));
-        }
+        }*/
     
     
     @AfterMethod

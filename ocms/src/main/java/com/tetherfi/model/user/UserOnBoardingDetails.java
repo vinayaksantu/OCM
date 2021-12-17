@@ -6,7 +6,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 public class UserOnBoardingDetails {
 
-	private String avayaLoginID;
+	private String agentID;
     private String lanId;
     private String firstname;
     private String lastname;
@@ -66,12 +66,13 @@ public class UserOnBoardingDetails {
     private String userDetailswithInvalidOrgUnit;
     private String userDetailswithNewColumn;
     private String userDetailswithUpdatedColumn;
+    private String pbxID;
     
     
     public UserOnBoardingDetails(Map<String,String> map){
     	OrgUnit=readOrgUnit(map);
     	UpdatedFirstName=readUpdatedFirstName(map);
-        avayaLoginID=readAvayaLoginID(map);
+    	agentID=readAgentID(map);
         lanId=readLanID(map);
         firstname=readFirstname(map);
         lastname=readLastname(map);
@@ -129,10 +130,16 @@ public class UserOnBoardingDetails {
         userDetailswithInvalidOrgUnit=readUserDetailswithInvalidOrgUnit(map);
         userDetailswithNewColumn=readUserDetailswithNewColumn(map);
         userDetailswithUpdatedColumn=readUserDetailswithUpdatedColumn(map);
+        pbxID=readPBXID(map);
         
     }
     
-    private String readUserDetailswithUpdatedColumn(Map<String, String> map) {
+    private String readPBXID(Map<String, String> map) {
+    	String value=map.get("PBX ID");
+		return value;
+	}
+
+	private String readUserDetailswithUpdatedColumn(Map<String, String> map) {
     	String value=map.get("Updated Column");
 		return value;
 	}
@@ -460,8 +467,8 @@ public class UserOnBoardingDetails {
         }
         return value;
     }
-    public String readAvayaLoginID(Map<String,String> map){
-        String value=map.get("Avaya Login ID");
+    public String readAgentID(Map<String,String> map){
+        String value=map.get("Agent ID");
         if(value==null||value.equalsIgnoreCase("random.str")){
             value= RandomStringUtils.randomAlphabetic(10);
         }
@@ -502,7 +509,7 @@ public class UserOnBoardingDetails {
         }
         return value;
     }
-    public String getAvayaLoginID() {return avayaLoginID;}
+    public String getAgentID() {return agentID;}
     public String getProfile() {return profile;}
     public String getSupervisor() {return supervisor;}
     public String getTeamName() {return teamName;}
@@ -712,6 +719,9 @@ public class UserOnBoardingDetails {
     	return userDetailswithUpdatedColumn;
     }
     
+    public String getPBXID() {
+    	return pbxID;
+    }
     
     
     

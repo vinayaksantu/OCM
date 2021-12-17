@@ -48,7 +48,7 @@ public class OCMViolationAccuracyReportTest extends BaseTest{
 		Assert.assertTrue(OCMReportsPage.verifyReportDisplayed(reportDetails),"Show report assertion failed");     
 	} 
 
-	//@Test(priority=2,description="To verify Show Report in New Tab for Single Date")
+	@Test(priority=2,description="To verify Show Report in New Tab for Single Date")
 	public void ShowReportInNewPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMViolationAccuracyReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowInNewPage").getTestData().get(0);
@@ -59,7 +59,7 @@ public class OCMViolationAccuracyReportTest extends BaseTest{
 		OCMReportsPage.switchBackToParentWindow();
 	}
 	
-	//@Test(priority=4,description="To verify Advanced search Is equal to Criteria")
+	@Test(priority=4,description="To verify Advanced search Is equal to Criteria")
 	public void verifyAdvancedSearchIsEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMViolationAccuracyReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -70,7 +70,7 @@ public class OCMViolationAccuracyReportTest extends BaseTest{
 		Assert.assertTrue(OCMViolationAccuracyReportPage.verifyAdvanceSearchIsEqualTo(reportDetails));
 	}
 
-	//@Test(priority=5,description="To verify Advanced search Is not equal to search Criteria") 
+	@Test(priority=5,description="To verify Advanced search Is not equal to search Criteria") 
 	public void verifyAdvancedSearchIsNotEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMViolationAccuracyReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(1);
@@ -445,7 +445,7 @@ public class OCMViolationAccuracyReportTest extends BaseTest{
 		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Report Deleted","Delete record assertion failed");
 	}
 
-	@Test(priority=39,enabled=false,description="To verify Show Report for Date Range")
+	@Test(priority=39,enabled=true,description="To verify Show Report for Date Range")
 	public void ShowReportForDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMViolationAccuracyReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);

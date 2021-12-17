@@ -1537,6 +1537,7 @@ public class IntroMessageAnnouncementPage extends BasePage {
 	
 	public void sendForAprroval(String comments) throws Exception {
 		selectWebElement(sendForApprovalBtn);
+		Thread.sleep(1000);
 		enterValueToTxtField(makerComments, comments);
 		selectWebElement(submitMakerComments);		
 	}

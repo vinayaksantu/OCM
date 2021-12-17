@@ -35,7 +35,7 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		ftp.transferFileFromRemote(remoteFilePath,destinationFilePath);
 	}
 	
-	@Test(priority=1,description="To verify Show Report for Single Date")
+	/*@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentAuxReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -54,7 +54,7 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		OCMReportsPage.showReportInNewPage(reportDetails);
 		Assert.assertTrue(OCMReportsPage.verifyReportDisplayed(reportDetails),"show report in new tab assertion failed");
 		OCMReportsPage.switchBackToParentWindow();
-	}
+	}*/
 
 	@Test(priority=3, description="To verify Agent Aux report UI data against DB")
 	public void database() throws Exception{
@@ -68,7 +68,7 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		System.out.println("Database Validation Completed for Agent Aux Report" +" : "+"UI and Database data is matched");	
 	}
 
-	@Test(priority=4,description="To verify Advanced search Is equal to Criteria")
+	/*@Test(priority=4,description="To verify Advanced search Is equal to Criteria")
 	public void verifyAdvancedSearchIsEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentAuxReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -641,7 +641,7 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		OCMAgentAuxReportPage AgentAuxReportPage=PageFactory.createPageInstance(driver,OCMAgentAuxReportPage.class);
 		Assert.assertTrue(AgentAuxReportPage.verifySorting(),"Sorting assertion failed");
-	}
+	}*/
 
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {

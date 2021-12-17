@@ -103,13 +103,23 @@ public class UserRoleMappingCreateTest {
     }
     
     @Test(groups = { "Maker" },priority=5)
-    public void VerifyAddRecordWithoutLoginID() throws Exception {
+    public void VerifyAddRecordWithoutAgentID() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         NewUserRoleMappingPage.addwithoutLoginID(UserRoleMappingDetails);
-        Assert.assertEquals(NewUserRoleMappingPage.VerifyMessage(), "Please Provide Login ID","Error Message Assertion failed");
+        Assert.assertEquals(NewUserRoleMappingPage.VerifyMessage(), "Please Provide Agent ID","Error Message Assertion failed");
+    }
+    
+    @Test(groups = { "Maker" },priority=5)
+    public void VerifyAddRecordWithoutPBXID() throws Exception {
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+        NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+        NewUserRoleMappingPage.addwithoutPBXID(UserRoleMappingDetails);
+        Assert.assertEquals(NewUserRoleMappingPage.VerifyMessage(), "Please Provide PBX ID","Error Message Assertion failed");
     }
     
     @Test(groups = { "Maker" },priority=6)
@@ -150,7 +160,7 @@ public class UserRoleMappingCreateTest {
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         NewUserRoleMappingPage.addwithoutRole(UserRoleMappingDetails);
         Assert.assertEquals(NewUserRoleMappingPage.VerifyMessage(), "Please Provide Role","Error Message Assertion failed");
-    }  
+    }
     
 	@Test(groups = { "Maker" },priority=10)
     public void AddRevertRecord() throws Exception {
@@ -159,7 +169,7 @@ public class UserRoleMappingCreateTest {
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         NewUserRoleMappingPage.addNewUserRoleMappingRecord(UserRoleMappingDetails);
-        //Assert.assertEquals(NewUserRoleMappingPage.getSuccessMessage(), "Record Created Successfully");
+        Assert.assertEquals(NewUserRoleMappingPage.getSuccessMessage(), "Record Created Successfully");
        }
 	
 	@Test(groups = { "Maker" },priority=11,dependsOnMethods="AddRevertRecord")
@@ -202,7 +212,7 @@ public class UserRoleMappingCreateTest {
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         NewUserRoleMappingPage.addNewUserRoleMappingRecord(UserRoleMappingDetails);
-       // Assert.assertEquals(NewUserRoleMappingPage.getSuccessMessage(), "Record Created Successfully");
+        Assert.assertEquals(NewUserRoleMappingPage.getSuccessMessage(), "Record Created Successfully");
        }
 	
 	@Test(groups = { "Maker" },priority=15,dependsOnMethods="AddRejectRecord")
@@ -252,7 +262,7 @@ public class UserRoleMappingCreateTest {
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         NewUserRoleMappingPage.addNewUserRoleMappingRecord(UserRoleMappingDetails);
-        //Assert.assertEquals(NewUserRoleMappingPage.getSuccessMessage(), "Record Created Successfully");
+        Assert.assertEquals(NewUserRoleMappingPage.getSuccessMessage(), "Record Created Successfully");
     }
 	
 	@Test(groups = { "Maker" },priority=20,dependsOnMethods = "AddNewNewUserRoleMappingRecord")

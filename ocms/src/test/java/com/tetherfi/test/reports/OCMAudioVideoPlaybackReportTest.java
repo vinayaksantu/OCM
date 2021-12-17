@@ -27,7 +27,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}
 
-	@Test(priority=1,description="To verify Show Report for Single Date")
+	/*@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowOCMAudioVideoPlaybackReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -46,7 +46,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		OCMReportsPage.showReportInNewPage(reportDetails);
 		Assert.assertTrue(OCMReportsPage.verifyReportDisplayed(reportDetails),"show report in new tab assertion failed");
 		OCMReportsPage.switchBackToParentWindow();
-	} 
+	} */
 
 	@Test(priority=3,description="To verify Audio Video Playback report UI data against DB")
 	public void database() throws Exception {
@@ -60,7 +60,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		System.out.println("Database Validation Completed Succesfully" +" : "+"UI and Database data is matched");
 	}
 	
-	@Test(priority=4,description="To verify Export Scheduler on OCM Reports Page")
+	/*@Test(priority=4,description="To verify Export Scheduler on OCM Reports Page")
 	public void ScheduleOCMAudioVideoPlaybackReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -552,7 +552,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		screenshot.captureScreen("OCMAudioVideoPlaybackReport", "GroupBy");
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.groupby());
 		screenshot.captureScreen("OCMAudioVideoPlaybackReport", "AlreadyGroupBy");
-	}
+	}*/
 
 
 	@AfterMethod

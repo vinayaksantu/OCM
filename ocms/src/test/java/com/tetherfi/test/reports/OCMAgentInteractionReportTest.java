@@ -35,7 +35,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		ftp.transferFileFromRemote(remoteFilePath,destinationFilePath);
 	}
 
-	@Test(priority=1,description="To verify Show Report for Single Date")
+	/*@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -54,7 +54,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		ocmReportsPage.showReportInNewPage(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"show report in new tab assertion failed");
 		ocmReportsPage.switchBackToParentWindow();
-	}
+	}*/
 	
 	@Test(priority=3, description="To verify Agent Interaction Report UI data against DB")
 	public void database() throws Exception {
@@ -67,7 +67,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		Assert.assertTrue(AgentInteractionReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails));
 	}
 	
-	@Test(priority=4,description="Maximize, minimize")
+	/*@Test(priority=4,description="Maximize, minimize")
 	public void OCMWindow() throws Exception {  	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -643,7 +643,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		OCMAgentInteractionReportPage agentInteractionReportPage =PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
 		Assert.assertTrue(agentInteractionReportPage.verifySorting(),"Sorting assertion failed");
-	}
+	}*/
 	
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {

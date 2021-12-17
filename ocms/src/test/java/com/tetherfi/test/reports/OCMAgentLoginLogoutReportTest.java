@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.tetherfi.model.report.ReportDetails;
@@ -35,7 +36,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		ftp.transferFileFromRemote(remoteFilePath,destinationFilePath);
 	}
 
-	@Test(priority=1,description="To verify Show Report for Single Date")
+	/*@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -54,7 +55,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		ocmReportsPage.showReportInNewPage(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"show report in new tab assertion failed");
 		ocmReportsPage.switchBackToParentWindow();
-	}
+	}*/
 
 	@Test(priority=3, description="To verify Agent Login logout report UI data against DB")
 	public void database() throws Exception{
@@ -68,7 +69,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		System.out.println("Database Validation Completed for Agent Login Logout report" +" : "+"UI and Database data is matched");
 	}
 
-	@Test(priority=4,description="Search by feature")
+	/*@Test(priority=4,description="Search by feature")
 	public void VerifySearchByFeature() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -745,7 +746,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		agntloginlogoutPage.verifycolumnsHeaderEnabled();
 		JSONReader json= new JSONReader(destinationFilePath);
 		Assert.assertTrue(agntloginlogoutPage.verifyJsonDataForgridColumnHidden(json.getJsonGridColumnTitleKeyDataForReports("Hidden")),"JSON data grid column hidden assertion failed");  	
-	}
+	}*/
 
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {

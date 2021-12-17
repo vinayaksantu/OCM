@@ -1194,10 +1194,10 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		queryDrillGridOne=queryDrillGridOne.replaceAll("ReportAfterDate",reportafterdate );
 		queryDrillGridOne=queryDrillGridOne.replaceAll("SkillIdCapturedFromUI", SkillId);
 		List<Map<String,String>> database=database(queryDrillGridOne);
-		//System.out.println("Printing Query" +" "+queryDrillGridOne);		
-		//System.out.println("Printing DB results" +" "+database);
+		System.out.println("Printing Query" +" "+queryDrillGridOne);		
+		System.out.println("Printing DB results" +" "+database);
 		List<Map<String,String>> UI=getDataTableDrillGridOne(); 
-		//System.out.println("Printing UI Results"+" "+UI);	
+		System.out.println("Printing UI Results"+" "+UI);	
 		if(UI.equals(database))
 			return true;
 		else

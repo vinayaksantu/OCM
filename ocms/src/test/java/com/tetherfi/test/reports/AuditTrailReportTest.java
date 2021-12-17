@@ -98,7 +98,7 @@ public class AuditTrailReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
 	}
 	
-	@Test(priority=8,dependsOnMethods ="ShowAuditTrailReportForDateRange")
+	/*@Test(priority=8,dependsOnMethods ="ShowAuditTrailReportForDateRange")
 	public void ShowAuditTrailReportInNewTabDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowInNewPageDateRange").getTestData().get(0);
@@ -219,7 +219,7 @@ public class AuditTrailReportTest extends BaseTest {
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
         Assert.assertTrue(ocmReportsPage.verifySearchContainsColumnValue());
-    }
+    }*/
     @AfterMethod
     public void afterEachMethod(Method method) {
     	screenshot.captureScreen("AuditTrailReportTest",method.getName());

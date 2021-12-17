@@ -1214,9 +1214,11 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 		query=query.replaceAll("ReportBeforeDate",reportbeforedate );
 		query=query.replaceAll("ReportAfterDate",reportafterdate );
 		List<Map<String,String>> database=database(query);
+		Thread.sleep(5000);
 		System.out.println("Printing Query" +" "+query);		
 		System.out.println("Printing DB results" +" "+database);
 		Thread.sleep(5000);
+		verifycolumnsHeaderEnabled();
 		List<Map<String,String>> UI=getDataTable1(); 
 		System.out.println("Printing UI Results"+" "+UI);	
 		if(UI.equals(database))

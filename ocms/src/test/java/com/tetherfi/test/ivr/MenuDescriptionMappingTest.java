@@ -46,7 +46,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
 		screenshot.captureScreen(driver,"MenuDescriptionMappingTest","MenuDescriptionMappingPage");
 	}
 
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void MenuDescriptionMappingPage() {
 		MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
 		Assert.assertTrue(menuDescriptionMappingPage.VerifyLogo(),"Logo assertion failed");
@@ -72,7 +72,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
 	public void VerifyColumnsHeaderDisable() {
 		MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
 		Assert.assertFalse(menuDescriptionMappingPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-	}
+	}*/
 
 	@Test(priority=5)
 	public void AddNewMenuDescriptionMappingRecord() throws Exception {
@@ -212,7 +212,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
 		Assert.assertTrue(menuDescriptionMappingPage.verifyclose());
 	}
 
-	@Test(priority=18)
+	/*@Test(priority=18)
 	public void VerifySearchIsNotEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -262,7 +262,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
 		MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
 		menuDescriptionMappingPage.searchwithoutextsearch();
 		Assert.assertEquals(menuDescriptionMappingPage.verifySuccessMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
-	}
+	}*/
 
 	@Test(priority=24)
 	public void ExportToExcel() throws Exception
@@ -324,7 +324,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyMenuDescriptionMappingdelete(MenuDescriptionMappingDetails,"Delete"));
 	}
 
-	@Test(priority=30)
+	/*@Test(priority=30)
 	public void SearchClearSearch() throws Exception
 	{
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
@@ -396,7 +396,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
 	public void VerifyNumberOfItemsPerPageSelection() {
 		MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
 		Assert.assertTrue(menuDescriptionMappingPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
-	}
+	}*/
 
 
 	@Test(priority=39)

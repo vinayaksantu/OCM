@@ -45,7 +45,7 @@ public class IntroMessageAnnouncementCreateTest {
             map= new ExcelReader(filePath,"Login").getTestData().get(1);
         else
             map= new ExcelReader(filePath,"Login").getTestData().get(0);
-        try{driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+        try{driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
         LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
         loginPage.overrideSecurityConcern();
         if(map.get("LoginType").equals("Custom")){
@@ -145,7 +145,7 @@ public class IntroMessageAnnouncementCreateTest {
         Assert.assertFalse(IntroMessageAnnouncementPage.getErrorMsg());
     }
     
-    //@Test(groups = { "Maker" },priority=9)
+   // @Test(groups = { "Maker" },priority=9)
     public void VerifyAddRecordWithoutInterrupt() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);

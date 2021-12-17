@@ -415,7 +415,7 @@ public class SmsResponseTemplatePage extends BasePage {
 	}
 
 	public boolean verifyAuditTrailDataTableHeaders() {
-		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList(" ","Request Id", "Transaction", "Function", "Status", "User Id", "Submission DateTime", "Maker Comments", "Old Values", "New Values", "Reviewed By","Review DateTime", "Checker Comments"));
+		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("IsEnabled","Request ID", "Transaction", "Function Name", "Status", "User Id", "Submission DateTime", "Maker Comments", "Reviewed By","Review DateTime", "Checker Comments"));
         ArrayList Actual = getHeadersfromTable(auditTrailTableHeaders);
         System.out.println(Actual);
         Collections.sort(Expected);Collections.sort(Actual);
@@ -559,8 +559,10 @@ public class SmsResponseTemplatePage extends BasePage {
         if(!nextPageIcon.get(i).getAttribute("class").contains("k-state-disabled")){
         int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
         selectWebElement(nextPageIcon.get(i));
+        waitForJqueryLoad(driver);
         int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
         selectWebElement(previousPageIcon.get(i));
+        waitForJqueryLoad(driver);
         int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
         if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
         }else{
@@ -573,8 +575,10 @@ public class SmsResponseTemplatePage extends BasePage {
         if(!lastPageIcon.get(i).getAttribute("class").contains("k-state-disabled")){
             int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
             selectWebElement(lastPageIcon.get(i));
+            waitForJqueryLoad(driver);
             int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
             selectWebElement(firstPageIcon.get(i));
+            waitForJqueryLoad(driver);
             int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
             if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
         }else{
@@ -809,10 +813,12 @@ public class SmsResponseTemplatePage extends BasePage {
 		selectWebElement(searchBtn1);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Intent");
+        Thread.sleep(1000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox,intent);		
         selectWebElement(searchSearchBtn);
+        waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -831,10 +837,12 @@ public class SmsResponseTemplatePage extends BasePage {
 		selectWebElement(searchBtn1);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Intent");
+        Thread.sleep(1000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,intent);		
         selectWebElement(searchSearchBtn);
+        waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -851,10 +859,12 @@ public class SmsResponseTemplatePage extends BasePage {
 		selectWebElement(searchBtn1);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Intent");
+        Thread.sleep(1000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
         enterValueToTxtField(searchTextBox,intent);		
         selectWebElement(searchSearchBtn);
+        waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -872,10 +882,12 @@ public class SmsResponseTemplatePage extends BasePage {
 		selectWebElement(searchBtn1);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Intent");
+        Thread.sleep(1000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox,intent);		
         selectWebElement(searchSearchBtn);
+        waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -893,10 +905,12 @@ public class SmsResponseTemplatePage extends BasePage {
 		selectWebElement(searchBtn1);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Intent");
+        Thread.sleep(1000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
         enterValueToTxtField(searchTextBox,intent);		
         selectWebElement(searchSearchBtn);
+        waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -913,6 +927,7 @@ public class SmsResponseTemplatePage extends BasePage {
 		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"ICOM Template ID");
+        Thread.sleep(1000);
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(searchText,icomTemplateId);
@@ -1114,6 +1129,7 @@ public class SmsResponseTemplatePage extends BasePage {
 	
 	public void sendForAprroval(String comments) throws Exception {
 		selectWebElement(sendForApprovalBtn);
+		Thread.sleep(1500);
 		enterValueToTxtField(makerComments, comments);
 		selectWebElement(submitMakerComments);		
 	}

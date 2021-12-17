@@ -31,11 +31,16 @@ public class Constants {
     
     
 	
-//	.61 PRODUCT OCM DB
+/*	.61 PRODUCT OCM DB
 	public static final String host="jdbc:sqlserver://172.16.2.61:1433";
 	public static final String db_user="ProdQA";
 	public static final String db_pass="Tetherfi123$";
-	public static final String db_name="Product_OCM";
+	public static final String db_name="Product_OCM";*/
+	
+	public static final String host="jdbc:mysql://172.16.2.115:3306/";
+    public static final String db_user="QA";
+    public static final String db_pass="MysQLBang@1993";
+    public static final String db_name="Product_OCM";  
 	
 //	DSTA DB 
     /*public static final String host="jdbc:sqlserver://172.16.2.16:14330";

@@ -28,7 +28,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}
 
-	@Test(priority=1,description="To verify Show Report for Single Date")
+	/*@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowOCMAgentHistoricalReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -671,7 +671,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
 		Assert.assertTrue(agentHistoricalPage.verifySorting(),"Sorting assertion failed");
-	}
+	}*/
 
 	@Test(priority=60, description="To verify Agent Historical report UI data against DB")
 	public void database() throws Exception {
@@ -723,7 +723,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		}
 	}
 
-	@Test(priority=61,description="To verify DrillOne sorting")
+	/*@Test(priority=61,description="To verify DrillOne sorting")
 	public void VerifyDrillOneSorting() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);

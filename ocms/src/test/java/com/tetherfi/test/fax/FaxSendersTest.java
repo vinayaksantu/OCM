@@ -49,7 +49,7 @@ public class FaxSendersTest extends BaseTest {
         Assert.assertTrue(faxSendersPage.isFaxSendersPageDisplayed(), "FAX page assertion failed");
     }
 
-    @Test(priority=1)
+    //@Test(priority=1)
     public void FaxSendersPage() {
         FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
     	Assert.assertTrue(faxSendersPage.verifylogo(),"FaxSenderslogo assertion failed");
@@ -179,7 +179,7 @@ public class FaxSendersTest extends BaseTest {
         Assert.assertEquals(faxSendersPage.getSuccessMessage(),"Record Updated Successfully");
     }
     
-    @Test(priority=14)
+    /*@Test(priority=14)
     public void searchPage() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -199,7 +199,7 @@ public class FaxSendersTest extends BaseTest {
         FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
         faxSendersPage.searchwithoutextsearch(faxSendersDetails);
     	Assert.assertFalse(faxSendersPage.getErrorMessage());
-    }
+    }*/
     
     @Test(priority=16)
     public void database() throws Exception {
@@ -210,7 +210,7 @@ public class FaxSendersTest extends BaseTest {
     	Assert.assertTrue(faxSendersPage.verifyDatabase(faxSendersDetails.getQuery()));
     }
     
-    @Test(priority=17)
+    //@Test(priority=17)
     public void SearchClearSearch() throws Exception
     {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
@@ -267,7 +267,7 @@ public class FaxSendersTest extends BaseTest {
     	Assert.assertTrue(faxSendersPage.verifyexportToExcelSheet(maplist));	
     }
     
-    @Test(priority=23)
+   /* @Test(priority=23)
     public void ExporttoExcelWithoutData() throws Exception
     {
         FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
@@ -345,7 +345,7 @@ public class FaxSendersTest extends BaseTest {
     public void VerifyColumnsHeaderDisable() {
         FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
         Assert.assertFalse(faxSendersPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-    }
+    }*/
     
     @Test(priority=34)
     public void BulkUploadData() throws Exception {

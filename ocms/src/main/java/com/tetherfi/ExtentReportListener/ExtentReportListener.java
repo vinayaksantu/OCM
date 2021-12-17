@@ -25,7 +25,7 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 public class ExtentReportListener implements ITestListener {
 
 	private static final String OUTPUT_FOLDER = "./test-output/ExtentReports/";
-	private static final String FILE_NAME = "CallBackAnnouncementTest.html";
+	private static final String FILE_NAME = "UserRoleMappingCreateTest.html";
 
 	private static ExtentReports extent = init();
 	public static ThreadLocal<ExtentTest> test = new ThreadLocal<ExtentTest>();

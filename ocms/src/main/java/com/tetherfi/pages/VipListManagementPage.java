@@ -189,7 +189,7 @@ public class VipListManagementPage extends BasePage{
     @FindBy(xpath="//input[@placeholder='Enter EmailID']")
     private WebElement emailIDTextBox;
     
-    @FindBy(id="FBHandle")
+    @FindBy(xpath="//input[@id='col_PropertyName']")
     private WebElement fbHandleTextBox;
     
     @FindBy(id="MessengerID")

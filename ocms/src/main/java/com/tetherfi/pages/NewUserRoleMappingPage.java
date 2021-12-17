@@ -70,7 +70,13 @@ public class NewUserRoleMappingPage extends BasePage {
     private WebElement AvayaLoginIDTextbox;
     
     @FindBy(xpath="//input[@id='AvayaLoginID']")
-    private WebElement editAvayaLoginIDTextbox;
+    private WebElement editAgentIDTextbox;
+    
+    @FindBy(css="#editorFields .k-formatted-value.k-input ")
+	private WebElement pbxID;
+	
+	@FindBy(xpath="//input[@id='PbxId']")
+	private WebElement pbxIDTextbox;
 
     @FindBy(css=".modal-body .col-lg-10 label")
     private List<WebElement> radioBtn;
@@ -372,7 +378,10 @@ public class NewUserRoleMappingPage extends BasePage {
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
         selectWebElement(AvayaLoginIDTextbox);
-        enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
+        enterValueToTxtFieldWithoutClear(editAgentIDTextbox,details.getAgentID());
+        System.out.println(details.getPBXID());
+        selectWebElement(pbxID);
+		enterValueToTxtFieldWithoutClear(pbxIDTextbox,details.getPBXID());
         selectWebElement(TeamNameDropDown);
         Thread.sleep(5000);
         ChooseTeamHeirarchy(details.getTeamName());
@@ -419,7 +428,9 @@ public class NewUserRoleMappingPage extends BasePage {
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
         selectWebElement(AvayaLoginIDTextbox);
-        enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
+        enterValueToTxtFieldWithoutClear(editAgentIDTextbox,details.getAgentID());
+        selectWebElement(pbxID);
+		enterValueToTxtFieldWithoutClear(pbxIDTextbox,details.getPBXID());
         selectWebElement(TeamNameDropDown);
         try {
         	Thread.sleep(1000);
@@ -444,7 +455,9 @@ public class NewUserRoleMappingPage extends BasePage {
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
         selectWebElement(AvayaLoginIDTextbox);
-        enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
+        enterValueToTxtFieldWithoutClear(editAgentIDTextbox,details.getAgentID());
+        selectWebElement(pbxID);
+		enterValueToTxtFieldWithoutClear(pbxIDTextbox,details.getPBXID());
         selectWebElement(TeamNameDropDown);
         try {
         	Thread.sleep(1000);
@@ -471,7 +484,9 @@ public class NewUserRoleMappingPage extends BasePage {
         selectWebElement(lastnameTextBox);
         enterValueToTxtField(lastnameTextBox,details.getLastname());
         selectWebElement(AvayaLoginIDTextbox);
-        enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
+        enterValueToTxtFieldWithoutClear(editAgentIDTextbox,details.getAgentID());
+        selectWebElement(pbxID);
+		enterValueToTxtFieldWithoutClear(pbxIDTextbox,details.getPBXID());
         selectWebElement(TeamNameDropDown);
         try {
         	Thread.sleep(1000);
@@ -497,6 +512,38 @@ public class NewUserRoleMappingPage extends BasePage {
         enterValueToTxtField(firstnameTextBox,details.getFirstname());
         selectWebElement(lastnameTextBox);
         enterValueToTxtField(lastnameTextBox,details.getLastname());
+        selectWebElement(usernameTextBox);
+        enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
+        selectWebElement(pbxID);
+		enterValueToTxtFieldWithoutClear(pbxIDTextbox,details.getPBXID());
+        selectWebElement(TeamNameDropDown);
+        try {
+        	Thread.sleep(1000);
+        }
+        catch (Exception e) {
+        	e.printStackTrace();
+        }
+        ChooseTeamHeirarchy(details.getTeamName());
+        editProfile(details.getProfile(),details.getSupervisor());
+        selectWebElement(RoleDropDown);
+        selectDropdownFromVisibleText(RoleListBox,details.getRole());
+        btnClick(editFormSaveBtn);
+        selectWebElement(cancelBtn);		
+	}
+	
+	public void addwithoutPBXID(UserRoleMappingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserRoleMappingTabs.get(1));
+		selectWebElement(makeUserRoleMappingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(addNewUserRoleMappingRecordBtn);
+		waitForJqueryLoad(driver);
+        selectWebElement(firstnameTextBox);
+        enterValueToTxtField(firstnameTextBox,details.getFirstname());
+        selectWebElement(lastnameTextBox);
+        enterValueToTxtField(lastnameTextBox,details.getLastname());
+        selectWebElement(AvayaLoginIDTextbox);
+        enterValueToTxtFieldWithoutClear(editAgentIDTextbox,details.getAgentID());
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
         selectWebElement(TeamNameDropDown);
@@ -527,7 +574,9 @@ public class NewUserRoleMappingPage extends BasePage {
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
         selectWebElement(AvayaLoginIDTextbox);
-        enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
+        enterValueToTxtFieldWithoutClear(editAgentIDTextbox,details.getAgentID());
+        selectWebElement(pbxID);
+		enterValueToTxtFieldWithoutClear(pbxIDTextbox,details.getPBXID());
         selectWebElement(TeamNameDropDown);
         try {
         	Thread.sleep(1000);
@@ -536,7 +585,7 @@ public class NewUserRoleMappingPage extends BasePage {
         	e.printStackTrace();
         }
         ChooseTeamHeirarchy(details.getTeamName());
-        editSupervisor("Harry Potter");
+        editSupervisor("Santosh K");
         selectWebElement(RoleDropDown);
         selectDropdownFromVisibleText(RoleListBox,details.getRole());
         btnClick(editFormSaveBtn);
@@ -556,7 +605,9 @@ public class NewUserRoleMappingPage extends BasePage {
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
         selectWebElement(AvayaLoginIDTextbox);
-        enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
+        enterValueToTxtFieldWithoutClear(editAgentIDTextbox,details.getAgentID());
+        selectWebElement(pbxID);
+		enterValueToTxtFieldWithoutClear(pbxIDTextbox,details.getPBXID());
         selectWebElement(TeamNameDropDown);
         try {
         	Thread.sleep(1000);
@@ -586,7 +637,9 @@ public class NewUserRoleMappingPage extends BasePage {
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
         selectWebElement(AvayaLoginIDTextbox);
-        enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
+        enterValueToTxtFieldWithoutClear(editAgentIDTextbox,details.getAgentID());
+        selectWebElement(pbxID);
+		enterValueToTxtFieldWithoutClear(pbxIDTextbox,details.getPBXID());
         selectWebElement(TeamNameDropDown);
         try {
         	Thread.sleep(1000);
@@ -613,7 +666,9 @@ public class NewUserRoleMappingPage extends BasePage {
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
         selectWebElement(AvayaLoginIDTextbox);
-        enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
+        enterValueToTxtFieldWithoutClear(editAgentIDTextbox,details.getAgentID());
+        selectWebElement(pbxID);
+		enterValueToTxtFieldWithoutClear(pbxIDTextbox,details.getPBXID());
         selectWebElement(RoleDropDown);
         selectDropdownFromVisibleText(RoleListBox,details.getRole());
         btnClick(editFormSaveBtn);
@@ -1361,9 +1416,9 @@ public class NewUserRoleMappingPage extends BasePage {
 
 	private boolean verifyNewValues(UserRoleMappingDetails details, Map<String, String> newvalues) {
 		Boolean Status=false;
-		if(newvalues.get("UserName").equals(details.getBankUserName()))
+		if(newvalues.get("Lan ID").equals(details.getBankUserName()))
 		{
-			if(newvalues.get("AvayaLoginID").equals(details.getAvayaLoginID()))
+			if(newvalues.get("Agent ID").equals(details.getAgentID()))
 			{
 				if(newvalues.get("FirstName").equals(details.getFirstname()))
 				{
@@ -1564,9 +1619,9 @@ public class NewUserRoleMappingPage extends BasePage {
 
 	private boolean verifyUpdatedNewValues(UserRoleMappingDetails details, Map<String, String> newvalues) {
 		Boolean Status=false;
-		if(newvalues.get("UserName").equals(details.getBankUserName()))
+		if(newvalues.get("Lan ID").equals(details.getBankUserName()))
 		{
-			if(newvalues.get("AvayaLoginID").equals(details.getAvayaLoginID()))
+			if(newvalues.get("Agent ID").equals(details.getAgentID()))
 			{
 				if(newvalues.get("FirstName").equals(details.getFirstname()))
 				{

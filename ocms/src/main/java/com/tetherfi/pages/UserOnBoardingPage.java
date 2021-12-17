@@ -328,7 +328,13 @@ public class UserOnBoardingPage extends BasePage {
 	private List<WebElement> texttemplatenameListBox;
 
 	@FindBy(id="AvayaLoginID")
-	private WebElement avayaLoginIdTextBox;
+	private WebElement agentIdTextBox;
+	
+	@FindBy(xpath="//span[@class='k-numeric-wrap k-state-default k-valid']")
+	private WebElement pbxID;
+	
+	@FindBy(xpath="//input[@id='PBXId']")
+	private WebElement pbxIDTextbox;
 
 	@FindBy(id="UserName")
 	private WebElement lanIdTextBox;
@@ -1333,7 +1339,7 @@ public class UserOnBoardingPage extends BasePage {
 		selectWebElement(lanIdTextBox);
 		enterValueToTxtFieldWithoutClear(lanIdTextBox,details.getLanID());
 		selectWebElement(numericTextbox.get(0));
-		enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		enterValueToTxtFieldWithoutClear(agentIdTextBox,details.getAgentID());
 		selectWebElement(teamnameDropdown);
 		try {
 			Thread.sleep(1000);
@@ -1373,7 +1379,7 @@ public class UserOnBoardingPage extends BasePage {
 		selectWebElement(lanIdTextBox);
 		enterValueToTxtFieldWithoutClear(lanIdTextBox,details.getLanID());
 		selectWebElement(numericTextbox.get(0));
-		enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		enterValueToTxtFieldWithoutClear(agentIdTextBox,details.getAgentID());
 		selectWebElement(teamnameDropdown);
 		try {
 			Thread.sleep(1000);
@@ -1411,7 +1417,7 @@ public class UserOnBoardingPage extends BasePage {
 		selectWebElement(lastnameTextBox);
 		enterValueToTxtFieldWithoutClear(lastnameTextBox,details.getLastname());
 		selectWebElement(numericTextbox.get(0));
-		enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		enterValueToTxtFieldWithoutClear(agentIdTextBox,details.getAgentID());
 		selectWebElement(teamnameDropdown);
 		try {
 			Thread.sleep(1000);
@@ -1451,7 +1457,7 @@ public class UserOnBoardingPage extends BasePage {
 		selectWebElement(lanIdTextBox);
 		enterValueToTxtFieldWithoutClear(lanIdTextBox,details.getLanID());
 		//selectWebElement(numericTextbox.get(0));
-		//enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		//enterValueToTxtFieldWithoutClear(agentIdTextBox,details.getAgentID());
 		selectWebElement(teamnameDropdown);
 		try {
 			Thread.sleep(1000);
@@ -1491,7 +1497,7 @@ public class UserOnBoardingPage extends BasePage {
 		selectWebElement(lanIdTextBox);
 		enterValueToTxtFieldWithoutClear(lanIdTextBox,details.getLanID());
 		selectWebElement(numericTextbox.get(0));
-		enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		enterValueToTxtFieldWithoutClear(agentIdTextBox,details.getAgentID());
 		selectProfile(details.getProfile(),"NA");
 		Thread.sleep(1000);
 		selectWebElement(nextButton.get(0));
@@ -1522,7 +1528,7 @@ public class UserOnBoardingPage extends BasePage {
 		selectWebElement(lanIdTextBox);
 		enterValueToTxtFieldWithoutClear(lanIdTextBox,details.getLanID());
 		selectWebElement(numericTextbox.get(0));
-		enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		enterValueToTxtFieldWithoutClear(agentIdTextBox,details.getAgentID());
 		selectWebElement(teamnameDropdown);
 		try {
 			Thread.sleep(1000);
@@ -1560,7 +1566,7 @@ public class UserOnBoardingPage extends BasePage {
 		selectWebElement(lanIdTextBox);
 		enterValueToTxtFieldWithoutClear(lanIdTextBox,details.getLanID());
 		selectWebElement(numericTextbox.get(0));
-		enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		enterValueToTxtFieldWithoutClear(agentIdTextBox,details.getAgentID());
 		selectWebElement(teamnameDropdown);
 		try {
 			Thread.sleep(1000);
@@ -1596,7 +1602,7 @@ public class UserOnBoardingPage extends BasePage {
 		selectWebElement(lanIdTextBox);
 		enterValueToTxtFieldWithoutClear(lanIdTextBox,details.getLanID());
 		selectWebElement(numericTextbox.get(0));
-		enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		enterValueToTxtFieldWithoutClear(agentIdTextBox,details.getAgentID());
 		selectWebElement(teamnameDropdown);
 		try {
 			Thread.sleep(1000);
@@ -1780,8 +1786,8 @@ public class UserOnBoardingPage extends BasePage {
 		boolean stat=false;
 		Map<String,String> firstRowData=getFirstRowDatafromTable();
 		Map<String,String> popupRowData=getFirstRowDatafromPreviewPopup();
-        System.out.println(firstRowData);
-        System.out.println(popupRowData);
+		System.out.println(firstRowData);
+		System.out.println(popupRowData);
 		if(firstRowData.get("Transaction").equalsIgnoreCase(transaction)){
 			if(firstRowData.get("Status").equalsIgnoreCase(status)){
 				if(firstRowData.get("Function Name").equalsIgnoreCase("User Onboarding")){
@@ -1809,23 +1815,25 @@ public class UserOnBoardingPage extends BasePage {
 		if(newvalues.get("Lan ID").equals(details.getLanID())){
 			if(newvalues.get("First Name").equals(details.getFirstname())){
 				if(newvalues.get("Last Name").equals(details.getLastname())){
-					if(newvalues.get("Avaya Login ID").equals(details.getAvayaLoginID())){
-						if(newvalues.get("Profile").equals(details.getProfile())){
-							stat=true;
-						}else{System.out.println("data mismatch"+newvalues.get("Profile")+"\t"+details.getProfile());}
-					}else{System.out.println("data mismatch"+newvalues.get("Avaya Login ID")+"\t"+details.getAvayaLoginID());}
+					if(newvalues.get("Agent ID").equals(details.getAgentID())){
+						if(newvalues.get("PBX ID").equals(details.getPBXID())){
+							if(newvalues.get("Profile").equals(details.getProfile())){
+								stat=true;
+							}else{System.out.println("data mismatch"+newvalues.get("Profile")+"\t"+details.getProfile());}
+						}else{System.out.println("data mismatch"+newvalues.get("PBX ID")+"\t"+details.getPBXID());}
+					}else{System.out.println("data mismatch"+newvalues.get("Agent ID")+"\t"+details.getAgentID());}
 				}else{System.out.println("data mismatch"+newvalues.get("Last Name")+"\t"+details.getLastname());}
 			}else{System.out.println("data mismatch"+newvalues.get("First Name")+"\t"+details.getFirstname());}
 		}else{System.out.println("data mismatch"+newvalues.get("Lan ID")+"\t"+details.getLanID());}
 		return stat;
 	}
-	
+
 	public boolean verifyAuditTrailForImport(UserOnBoardingDetails details,String transaction, String status) throws Exception{
 		boolean stat=false;
 		Map<String,String> firstRowData=getFirstRowDatafromTable();
 		Map<String,String> popupRowData=getFirstRowDatafromPreviewPopup();
-        System.out.println(firstRowData);
-        System.out.println(popupRowData);
+		System.out.println(firstRowData);
+		System.out.println(popupRowData);
 		if(firstRowData.get("Transaction").equalsIgnoreCase(transaction)){
 			if(firstRowData.get("Status").equalsIgnoreCase(status)){
 				if(firstRowData.get("Function Name").equalsIgnoreCase("User Onboarding")){
@@ -1847,7 +1855,7 @@ public class UserOnBoardingPage extends BasePage {
 		}else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+transaction);}
 		return stat;
 	}
-	
+
 	public boolean verifyNewValuesofImport(UserOnBoardingDetails details, Map<String,String> newvalues){
 		boolean stat=false;
 		String profile = null;
@@ -1856,11 +1864,13 @@ public class UserOnBoardingPage extends BasePage {
 		if(newvalues.get("UserName").equals(details.getLanID())){
 			if(newvalues.get("FirstName").equals(details.getFirstname())){
 				if(newvalues.get("LastName").equals(details.getLastname())){
-					if(newvalues.get("AvayaLoginID").equals(details.getAvayaLoginID())){
-						if(newvalues.get("Profile").equals(profile)){
-							stat=true;
-						}else{System.out.println("data mismatch"+newvalues.get("Profile")+"\t"+details.getProfile());}
-					}else{System.out.println("data mismatch"+newvalues.get("Avaya Login ID")+"\t"+details.getAvayaLoginID());}
+					if(newvalues.get("Agent ID").equals(details.getAgentID())){
+						if(newvalues.get("PBX ID").equals(details.getPBXID())){
+							if(newvalues.get("Profile").equals(profile)){
+								stat=true;
+							}else{System.out.println("data mismatch"+newvalues.get("Profile")+"\t"+details.getProfile());}
+						}else{System.out.println("data mismatch"+newvalues.get("PBX ID")+"\t"+details.getPBXID());}
+					}else{System.out.println("data mismatch"+newvalues.get("Agent ID")+"\t"+details.getAgentID());}
 				}else{System.out.println("data mismatch"+newvalues.get("Last Name")+"\t"+details.getLastname());}
 			}else{System.out.println("data mismatch"+newvalues.get("First Name")+"\t"+details.getFirstname());}
 		}else{System.out.println("data mismatch"+newvalues.get("Lan ID")+"\t"+details.getLanID());}
@@ -1956,7 +1966,7 @@ public class UserOnBoardingPage extends BasePage {
 	private boolean verifyUpdatedNewValues(UserOnBoardingDetails details, Map<String, String> newvalues) {
 		Boolean Status=false;
 		if(newvalues.get("Lan ID").equals(details.getLanID())){
-			if(newvalues.get("Avaya Login ID").equals(details.getAvayaLoginID())){
+			if(newvalues.get("Avaya Login ID").equals(details.getAgentID())){
 				if(newvalues.get("First Name").equals(details.getUpdatedFirstname())){
 					if(newvalues.get("Last Name").equals(details.getLastname())){
 						if(newvalues.get("Profile").equals(details.getProfile())) {
@@ -1970,7 +1980,7 @@ public class UserOnBoardingPage extends BasePage {
 						}else{System.out.println("data mismatch"+newvalues.get("Profile")+"\t"+details.getProfile());}
 					}else{System.out.println("data mismatch"+newvalues.get("Last Name")+"\t"+details.getLastname());}
 				}else{System.out.println("data mismatch"+newvalues.get("First Name")+"\t"+details.getFirstname());}
-			}else{System.out.println("data mismatch"+newvalues.get("Avaya Login ID")+"\t"+details.getAvayaLoginID());}
+			}else{System.out.println("data mismatch"+newvalues.get("Avaya Login ID")+"\t"+details.getAgentID());}
 		}else{System.out.println("data mismatch"+newvalues.get("Lan ID")+"\t"+details.getLanID());}
 		return Status;
 	}
@@ -2911,7 +2921,9 @@ public class UserOnBoardingPage extends BasePage {
 		selectWebElement(lanIdTextBox);
 		enterValueToTxtFieldWithoutClear(lanIdTextBox,details.getLanID());
 		selectWebElement(numericTextbox.get(0));
-		enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		enterValueToTxtFieldWithoutClear(agentIdTextBox,details.getAgentID());
+		selectWebElement(pbxID);
+		enterValueToTxtFieldWithoutClear(pbxIDTextbox,details.getPBXID());
 		selectWebElement(teamnameDropdown);
 		try {
 			Thread.sleep(1000);

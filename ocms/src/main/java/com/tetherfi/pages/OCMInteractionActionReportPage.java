@@ -1090,8 +1090,8 @@ public class OCMInteractionActionReportPage extends BasePage  {
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("Team Name"));
-			if(map1.get("Team Name").toUpperCase().contains(reportDetails.getSearchStr()))				
+			System.out.println(map1.get("Org.Unit"));
+			if(map1.get("Org.Unit").toUpperCase().contains(reportDetails.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
@@ -1160,7 +1160,7 @@ public class OCMInteractionActionReportPage extends BasePage  {
 		}
 		selectWebElement(searchColDropdownAdvSrchReportPage1);
 		Thread.sleep(2000);
-		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Agent Name");
+		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Action");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch1);
 		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Contains");
@@ -1356,10 +1356,10 @@ public class OCMInteractionActionReportPage extends BasePage  {
 		query=query.replaceAll("ReportBeforeDate",reportbeforedate );
 		query=query.replaceAll("ReportAfterDate",reportafterdate );
 		List<Map<String,String>> database=database(query);
-		//		System.out.println("Printing Query" +" "+query);		
-		//		System.out.println("Printing DB results" +" "+database);
+				System.out.println("Printing Query" +" "+query);		
+				System.out.println("Printing DB results" +" "+database);
 		List<Map<String,String>> UI=getDataTable1(); 
-		//		System.out.println("Printing UI Results"+" "+UI);	
+				System.out.println("Printing UI Results"+" "+UI);	
 		if(UI.equals(database))
 			return true;
 		else

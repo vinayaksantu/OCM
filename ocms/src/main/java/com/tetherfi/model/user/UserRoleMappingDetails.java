@@ -8,7 +8,7 @@ public class UserRoleMappingDetails {
     private String firstname;
     private String lastname;
     private String bankUserName;
-    private String avayaLoginID;
+    private String agentID;
     private String teamName;
     private String profile;
     private String supervisor;
@@ -17,13 +17,14 @@ public class UserRoleMappingDetails {
     private String deleteReason;
     private String UpdatedFirstName;
     private String OrgUnit;
+    private String pbxID;
     private String query;
 
     public UserRoleMappingDetails(Map<String,String> map){
         firstname=readFirstName(map);
         lastname=readLastName(map);
         bankUserName=readBankUserName(map);
-        avayaLoginID=readAvayaLoginID(map);
+        agentID=readAgentID(map);
         teamName=readTeamName(map);
         role=readRole(map);
         profile=readProfile(map);
@@ -32,10 +33,16 @@ public class UserRoleMappingDetails {
         deleteReason=readDeleteReason(map);
         UpdatedFirstName=readUpdatedFirstName(map);
         OrgUnit=readOrgUnit(map);
+        pbxID=readPBXID(map);
         query=readQuery(map);
     }
 
-    private String readQuery(Map<String, String> map) {
+    private String readPBXID(Map<String, String> map) {
+    	String value=map.get("PBX ID");
+        return value;
+	}
+
+	private String readQuery(Map<String, String> map) {
     	String value=map.get("Query");
         return value;
 	}
@@ -85,8 +92,8 @@ public class UserRoleMappingDetails {
         }
         return value;
     }
-    public String readAvayaLoginID(Map<String,String> map){
-        String value=map.get("Avaya Login ID");
+    public String readAgentID(Map<String,String> map){
+        String value=map.get("Agent ID");
         if(value==null||value.equalsIgnoreCase("random.str")){
             value= RandomStringUtils.randomAlphabetic(10);
         }
@@ -128,7 +135,8 @@ public class UserRoleMappingDetails {
         return value;
     }
     public String getBankUserName(){return bankUserName;}
-    public String getAvayaLoginID() {return avayaLoginID;}
+    public String getAgentID() {return agentID;}
+    public String getPBXID() {return pbxID;}
     public String getProfile() {return profile;}
     public String getSupervisor() {return supervisor;}
     public String getTeamName() {return teamName;}

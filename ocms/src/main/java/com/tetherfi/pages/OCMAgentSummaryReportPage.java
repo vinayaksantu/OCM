@@ -1101,8 +1101,8 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("Team Name"));
-			if(map1.get("Team Name").toUpperCase().contains(reportDetails.getSearchStr()))				
+			System.out.println(map1.get("Org.Unit"));
+			if(map1.get("Org.Unit").toUpperCase().contains(reportDetails.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;

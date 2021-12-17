@@ -59,7 +59,7 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
         Assert.assertTrue(faxAutoAckConfigurationPage.isFaxAutoACKConfigurationPageDisplayed(), "FAX page assertion failed");
     }
 
-    @Test(priority=1)
+    /*@Test(priority=1)
     public void FaxAutoACKConfigurationPage() {
         FaxAutoACKConfigurationPage faxAutoAckConfigurationPage = PageFactory.createPageInstance(driver, FaxAutoACKConfigurationPage.class);
     	Assert.assertTrue(faxAutoAckConfigurationPage.verifylogo(),"FaxSenderslogo assertion failed");
@@ -85,7 +85,7 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
     public void VerifyColumnsHeaderDisable() {
         FaxAutoACKConfigurationPage faxAutoAckConfigurationPage = PageFactory.createPageInstance(driver, FaxAutoACKConfigurationPage.class);
         Assert.assertFalse(faxAutoAckConfigurationPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-    }
+    }*/
     
     @Test(priority=5)
     public void AddCancelAutoAckConfigRecord() throws Exception {
@@ -228,7 +228,7 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
         Assert.assertEquals(faxAutoAckConfigurationPage.getSuccessMessage(), "Record Created Successfully");
     }
     
-    @Test(priority=20)
+    /*@Test(priority=20)
     public void searchPage() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAutoACKConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -245,7 +245,7 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
         FaxAutoACKConfigurationPage faxAutoAckConfigurationPage = PageFactory.createPageInstance(driver, FaxAutoACKConfigurationPage.class);
         faxAutoAckConfigurationPage.searchwithoutextsearch();
     	Assert.assertFalse(faxAutoAckConfigurationPage.getErrorMsg());
-    }
+    }*/
     
     @Test(priority=22)
     public void DeleteCancelFaxAutoAckConfigRecord() throws Exception {
@@ -285,7 +285,7 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
         Assert.assertTrue(faxAutoAckConfigurationPage.verifyDatabase(faxAutoAckConfigurationDetails.getQuery()));
     }
        
-    @Test(priority=26)
+    /*@Test(priority=26)
     public void ExporttoExcelWithoutData() throws Exception
     {
         FaxAutoACKConfigurationPage faxAutoAckConfigurationPage = PageFactory.createPageInstance(driver, FaxAutoACKConfigurationPage.class);
@@ -348,7 +348,7 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
     public void VerifyNumberOfItemsPerPageSelection() {
         FaxAutoACKConfigurationPage faxAutoAckConfigurationPage = PageFactory.createPageInstance(driver, FaxAutoACKConfigurationPage.class);
         Assert.assertTrue(faxAutoAckConfigurationPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
-    }
+    }*/
     
     @Test(priority=34,dependsOnMethods = {"AddNewAutoAckConfigRecord"})
     public void VerifyAuditTrialReportForCreate() throws Exception {

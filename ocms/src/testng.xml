@@ -10,7 +10,7 @@
 
 	<test name="OCMRegression">
 		<classes>
-			<class name="com.tetherfi.test.ivr.CallBackAnnouncementTest"/>
+			<class name="com.tetherfi.test.UserRoleMappingCreateTest"/>
 		</classes>
 	
 	</test>

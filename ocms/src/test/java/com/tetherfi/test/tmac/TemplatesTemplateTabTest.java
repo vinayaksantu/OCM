@@ -42,7 +42,7 @@ public class TemplatesTemplateTabTest extends BaseTest {
 		Assert.assertTrue(agentTemplatePage.isAgentemplatePageIsDisplayed(), "AgentTemplatePage Assertion  failed");
 	}
 
-	@Test(priority=1,description="Verify the add button at Template tab") 
+	/*@Test(priority=1,description="Verify the add button at Template tab") 
 	public void VerifyaddBtn() throws Exception{   	
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		Assert.assertTrue(agentTemplatePage.verifyAddButton(),"Label assertion failed");
@@ -147,7 +147,7 @@ public class TemplatesTemplateTabTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map2);
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyTemplateTabUpdate(AgentTemplateDetails, "Update"), "Create Audit Trail Assertion Failed"); 
-	}
+	}*/
 
 	@Test(priority=11,description="verify the edit button without modify reason")
 	public void EditRecordwithoutModifyreason() throws Exception {

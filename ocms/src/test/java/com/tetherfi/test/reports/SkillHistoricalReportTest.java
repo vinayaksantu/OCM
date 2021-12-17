@@ -34,7 +34,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}
 
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void ShowOCMSkillhistoricalReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -569,7 +569,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(skillHistoricalPage.verifySelectDateFeature(reportDetails)); 
 	}
 
-	/*@Test(priority=51,description="To verify Select Date feature")
+	@Test(priority=51,description="To verify Select Date feature")
 	public void verifySelectIntervalFeature() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"DrillDown").getTestData().get(0);
@@ -653,7 +653,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
 		Assert.assertTrue(skillHistoricalPage.verifySorting(),"item per page assertion failed");
-	}
+	}*/
 
 
 	@Test(priority=59, description="To verify report data against DB")
@@ -703,7 +703,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 			agtSkillHistoricalPage.closeDrillOneReport();
 			Thread.sleep(1000);
 		}
-	}*/
+	}
 
 
 

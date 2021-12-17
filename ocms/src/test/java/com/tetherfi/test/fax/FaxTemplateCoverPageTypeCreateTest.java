@@ -47,7 +47,7 @@ protected WebDriver driver;
 			map=new ExcelReader(filePath,"Login").getTestData().get(1);
 		else
 			map=new ExcelReader(filePath,"Login").getTestData().get(0);
-		try {driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+		try {driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
 		LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
         loginPage.overrideSecurityConcern();
 		if(map.get("LoginType").equals("Custom")) {

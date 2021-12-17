@@ -7,21 +7,23 @@
   </listeners>
   <test thread-count="5" name="OCMRegression(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.CallBackAnnouncementTest">
+      <class name="com.tetherfi.test.UserRoleMappingCreateTest">
         <methods>
-          <include name="EditCallBackAnnouncementRecord"/>
-          <include name="DeleteWithoutDeleteReasonRecord"/>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="NavigateToCallBackAnnouncementPage"/>
-          <include name="EditWithoutModifyReasonCallbackannouncementRecord"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="DeleteCallbackAnnouncementRecord"/>
-          <include name="VerifyCancelButtonAtEditCallbackAnnouncementRecord"/>
+          <include name="VerifyRevertForAddNewRecord"/>
+          <include name="VerifyApprovedDataSectionWithoutApproval"/>
+          <include name="VerifyAuditTrailReportForReject"/>
+          <include name="NavigateToNewUserRoleMappingPage"/>
           <include name="afterEachMethod"/>
+          <include name="AddRejectRecord"/>
+          <include name="AddRevertRecord"/>
+          <include name="RejectforAddNewNewUserRoleMappingRecord"/>
+          <include name="VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord"/>
+          <include name="VerifySendForApprovalForAddNewRecord"/>
+          <include name="VerifyAuditTrailReportForRevert"/>
+          <include name="AddNewNewUserRoleMappingRecord"/>
+          <include name="VerifyAuditTrailReportForCreate"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.CallBackAnnouncementTest -->
+      </class> <!-- com.tetherfi.test.UserRoleMappingCreateTest -->
     </classes>
   </test> <!-- OCMRegression(failed) -->
 </suite> <!-- Failed suite [OCM Modules Test Automation] -->

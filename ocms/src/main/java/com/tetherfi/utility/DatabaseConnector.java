@@ -16,12 +16,12 @@ public class DatabaseConnector {
 	public void connectToDataBase(String db) {
 		try {
 			//        	MS sql DB connection string
-			String dbUrl=Constants.host+";databaseName="+db;
-        	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			/*String dbUrl=Constants.host+";databaseName="+db;
+        	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");*/
 
 			//        	My Sql JDBC connection	
-			/*String dbUrl=Constants.host+""+db;
-			Class.forName("com.mysql.cj.jdbc.Driver");*/
+			String dbUrl=Constants.host+""+db;
+			Class.forName("com.mysql.cj.jdbc.Driver");
 
 			con = DriverManager.getConnection(dbUrl, Constants.db_user, Constants.db_pass);
 			System.out.println("Connection Established Successfull:");
@@ -61,6 +61,25 @@ public class DatabaseConnector {
 				for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
 					String str=rs.getString(i).trim();
 					map.put(rs.getMetaData().getColumnName(i),str);
+				}
+				maplist.add(map);
+			}
+		} catch (Exception e) {
+			System.out.println("Unable to fetch the Resultset Data");
+			e.printStackTrace();
+		}
+		return maplist;
+	}
+	
+	public List<Map<String, String>> getResultSetInMapForMySQL(ResultSet rs) {
+		List<Map<String, String>> maplist = new ArrayList<Map<String, String>>();
+		Map<String, String> map;
+		try {
+			while (rs.next()) {
+				map = new HashMap<String, String>();
+				for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+					String str=rs.getString(i).trim();
+					map.put(rs.getMetaData().getColumnLabel(i),str);
 				}
 				maplist.add(map);
 			}

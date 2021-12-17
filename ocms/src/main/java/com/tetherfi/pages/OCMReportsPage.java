@@ -4667,7 +4667,7 @@ public class OCMReportsPage extends BasePage {
 			if(oldvalues.get("Functionality").equals(details.getFunctionality())){
 				if(oldvalues.get("Hotline").equals(details.getHotLine())){
 					if(oldvalues.get("Language").equals(details.getLanguage())) {
-						if(oldvalues.get("Interrupt").equals(details.getInterrupt())){
+						if(oldvalues.get("Interrupt").equals(details.getUpdatedInterrupt())){
 							if(oldvalues.get("Status").equals(details.getStatus())){
 								/*if(oldvalues.get("WaveFile").equals(details.getWavFile()))*/
 								String []wavefileSplit=details.getWavFile().split("\\.");
@@ -7549,9 +7549,9 @@ public class OCMReportsPage extends BasePage {
 			if(f.length>1)
 				newvalues.put(f[0], f[1]);
 		}
-		if(newvalues.get("UserName").equals(details.getBankUserName()))
+		if(newvalues.get("Lan ID").equals(details.getBankUserName()))
 		{
-			if(newvalues.get("AvayaLoginID").equals(details.getAvayaLoginID()))
+			if(newvalues.get("Agent ID").equals(details.getAgentID()))
 			{
 				if(newvalues.get("FirstName").equals(details.getFirstname()))
 				{
@@ -7598,9 +7598,9 @@ public class OCMReportsPage extends BasePage {
 				if(f.length>1)
 					oldvalues.put(f[0], f[1]);
 			}
-			if(oldvalues.get("UserName").equals(details.getBankUserName()))
+			if(oldvalues.get("Lan ID").equals(details.getBankUserName()))
 			{
-				if(oldvalues.get("AvayaLoginID").equals(details.getAvayaLoginID()))
+				if(oldvalues.get("Agent ID").equals(details.getAgentID()))
 				{
 					if(oldvalues.get("FirstName").equals(details.getFirstname()))
 					{
@@ -7621,9 +7621,9 @@ public class OCMReportsPage extends BasePage {
 													if(f.length>1)
 														newvalues.put(f[0], f[1]);
 												}
-												if(newvalues.get("UserName").equals(details.getBankUserName()))
+												if(newvalues.get("Lan ID").equals(details.getBankUserName()))
 												{
-													if(newvalues.get("AvayaLoginID").equals(details.getAvayaLoginID()))
+													if(newvalues.get("Agent ID").equals(details.getAgentID()))
 													{
 														if(newvalues.get("FirstName").equals(details.getUpdatedFirstname()))
 														{
@@ -7691,9 +7691,9 @@ public class OCMReportsPage extends BasePage {
 			if(f.length>1)
 				oldvalues.put(f[0], f[1]);
 		}
-		if(oldvalues.get("UserName").equals(details.getBankUserName()))
+		if(oldvalues.get("Lan ID").equals(details.getBankUserName()))
 		{
-			if(oldvalues.get("AvayaLoginID").equals(details.getAvayaLoginID()))
+			if(oldvalues.get("Agent ID").equals(details.getAgentID()))
 			{
 				if(oldvalues.get("FirstName").equals(details.getFirstname()))
 				{
@@ -8606,19 +8606,21 @@ public class OCMReportsPage extends BasePage {
 				newvalues.put(f[0], f[1]);
 		}
 		if(newvalues.get("Lan ID").equals(details.getLanID())){
-			if(newvalues.get("Avaya Login ID").equals(details.getAvayaLoginID())){
+			if(newvalues.get("Agent ID").equals(details.getAgentID())){
 				if(newvalues.get("First Name").equals(details.getFirstname())){
 					if(newvalues.get("Last Name").equals(details.getLastname())){
-						if(newvalues.get("Profile").equals(details.getProfile())) {
-							if(newvalues.get("OrgUnit").equals(details.getTeamName().split(">")[details.getTeamName().split(">").length-1])){
-								if(newvalues.get("Supervisor Name").equals(details.getSupervisor())){
-									Status=true;
-								}else{System.out.println("data mismatch"+newvalues.get("Supervisor Name")+"\t"+details.getSupervisor());}
-							}else{System.out.println("data mismatch"+newvalues.get("OrgUnit")+"\t"+details.getTeamName());}
-						}else{System.out.println("data mismatch"+newvalues.get("Profile")+"\t"+details.getProfile());}
+						if(newvalues.get("PBX ID").equals(details.getPBXID())){
+							if(newvalues.get("Profile").equals(details.getProfile())) {
+								if(newvalues.get("OrgUnit").equals(details.getTeamName().split(">")[details.getTeamName().split(">").length-1])){
+									if(newvalues.get("Supervisor Name").equals(details.getSupervisor())){
+										Status=true;
+									}else{System.out.println("data mismatch"+newvalues.get("Supervisor Name")+"\t"+details.getSupervisor());}
+								}else{System.out.println("data mismatch"+newvalues.get("OrgUnit")+"\t"+details.getTeamName());}
+							}else{System.out.println("data mismatch"+newvalues.get("Profile")+"\t"+details.getProfile());}
+						}else{System.out.println("data mismatch"+newvalues.get("PBX ID")+"\t"+details.getPBXID());}
 					}else{System.out.println("data mismatch"+newvalues.get("Last Name")+"\t"+details.getLastname());}
 				}else{System.out.println("data mismatch"+newvalues.get("First Name")+"\t"+details.getFirstname());}
-			}else{System.out.println("data mismatch"+newvalues.get("Avaya Login ID")+"\t"+details.getAvayaLoginID());}
+			}else{System.out.println("data mismatch"+newvalues.get("Avaya Login ID")+"\t"+details.getAgentID());}
 		}else{System.out.println("data mismatch"+newvalues.get("Lan ID")+"\t"+details.getLanID());}
 		return Status;
 	}
@@ -8637,44 +8639,48 @@ public class OCMReportsPage extends BasePage {
 					oldvalues.put(f[0], f[1]);
 			}
 			if(oldvalues.get("Lan ID").equals(details.getLanID())){
-				if(oldvalues.get("Avaya Login ID").equals(details.getAvayaLoginID())){
+				if(oldvalues.get("Agent ID").equals(details.getAgentID())){
 					if(oldvalues.get("First Name").equals(details.getFirstname())){
 						if(oldvalues.get("Last Name").equals(details.getLastname())){
-							if(oldvalues.get("Profile").equals(details.getProfile())) {
-								if(oldvalues.get("OrgUnit").equals(details.getTeamName().split(">")[details.getTeamName().split(">").length-1])){
-									if(oldvalues.get("Supervisor Name").equals(details.getSupervisor())){
-										if(firstRowData.containsKey("New Values")) {
-											Map<String,String> newvalues=new HashMap<>();
-											String[]d1=firstRowData.get("New Values").split("\n");
-											for(String e:d1) {
-												String f[]=e.split(":",2);
-												if(f.length>1)
-													newvalues.put(f[0], f[1]);
-											}
-											if(newvalues.get("Lan ID").equals(details.getLanID())){
-												if(newvalues.get("Avaya Login ID").equals(details.getAvayaLoginID())){
-													if(newvalues.get("First Name").equals(details.getUpdatedFirstname())){
-														if(newvalues.get("Last Name").equals(details.getLastname())){
-															if(newvalues.get("Profile").equals(details.getProfile())) {
-																if(newvalues.get("OrgUnit").equals(details.getTeamName().split(">")[details.getTeamName().split(">").length-1])){
-																	if(newvalues.get("Supervisor Name").equals(details.getSupervisor())){
-																		if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
-																			Status=true;
-																		}else {System.out.println("Modify reason data mismatch");}
-																	}else{System.out.println("data mismatch"+newvalues.get("Supervisor Name")+"\t"+details.getSupervisor());}
-																}else{System.out.println("data mismatch"+newvalues.get("OrgUnit")+"\t"+details.getTeamName());}
-															}else{System.out.println("data mismatch"+newvalues.get("Profile")+"\t"+details.getProfile());}
-														}else{System.out.println("data mismatch"+newvalues.get("Last Name")+"\t"+details.getLastname());}
-													}else{System.out.println("data mismatch"+newvalues.get("First Name")+"\t"+details.getFirstname());}
-												}else{System.out.println("data mismatch"+newvalues.get("Avaya Login ID")+"\t"+details.getAvayaLoginID());}
-											}else{System.out.println("data mismatch"+newvalues.get("Lan ID")+"\t"+details.getLanID());}
-										}else {System.out.println("New values data mismatch");}
-									}else{System.out.println("data mismatch"+oldvalues.get("Supervisor Name")+"\t"+details.getSupervisor());}
-								}else{System.out.println("data mismatch"+oldvalues.get("OrgUnit")+"\t"+details.getTeamName());}
-							}else{System.out.println("data mismatch"+oldvalues.get("Profile")+"\t"+details.getProfile());}
+							if(oldvalues.get("PBX ID").equals(details.getPBXID())){
+								if(oldvalues.get("Profile").equals(details.getProfile())) {
+									if(oldvalues.get("OrgUnit").equals(details.getTeamName().split(">")[details.getTeamName().split(">").length-1])){
+										if(oldvalues.get("Supervisor Name").equals(details.getSupervisor())){
+											if(firstRowData.containsKey("New Values")) {
+												Map<String,String> newvalues=new HashMap<>();
+												String[]d1=firstRowData.get("New Values").split("\n");
+												for(String e:d1) {
+													String f[]=e.split(":",2);
+													if(f.length>1)
+														newvalues.put(f[0], f[1]);
+												}
+												if(newvalues.get("Lan ID").equals(details.getLanID())){
+													if(newvalues.get("Agent ID").equals(details.getAgentID())){
+														if(newvalues.get("First Name").equals(details.getUpdatedFirstname())){
+															if(newvalues.get("Last Name").equals(details.getLastname())){
+																if(newvalues.get("PBX ID").equals(details.getPBXID())) {
+																	if(newvalues.get("Profile").equals(details.getProfile())) {
+																		if(newvalues.get("OrgUnit").equals(details.getTeamName().split(">")[details.getTeamName().split(">").length-1])){
+																			if(newvalues.get("Supervisor Name").equals(details.getSupervisor())){
+																				if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
+																					Status=true;
+																				}else {System.out.println("Modify reason data mismatch");}
+																			}else{System.out.println("data mismatch"+newvalues.get("Supervisor Name")+"\t"+details.getSupervisor());}
+																		}else{System.out.println("data mismatch"+newvalues.get("OrgUnit")+"\t"+details.getTeamName());}
+																	}else{System.out.println("data mismatch"+newvalues.get("Profile")+"\t"+details.getProfile());}
+																}else{System.out.println("data mismatch"+newvalues.get("Last Name")+"\t"+details.getLastname());}
+															}else{System.out.println("data mismatch"+newvalues.get("Last Name")+"\t"+details.getLastname());}
+														}else{System.out.println("data mismatch"+newvalues.get("First Name")+"\t"+details.getFirstname());}
+													}else{System.out.println("data mismatch"+newvalues.get("Agent ID")+"\t"+details.getAgentID());}
+												}else{System.out.println("data mismatch"+newvalues.get("Lan ID")+"\t"+details.getLanID());}
+											}else {System.out.println("New values data mismatch");}
+										}else{System.out.println("data mismatch"+oldvalues.get("Supervisor Name")+"\t"+details.getSupervisor());}
+									}else{System.out.println("data mismatch"+oldvalues.get("OrgUnit")+"\t"+details.getTeamName());}
+								}else{System.out.println("data mismatch"+oldvalues.get("Profile")+"\t"+details.getProfile());}
+							}else{System.out.println("data mismatch"+oldvalues.get("PBX ID")+"\t"+details.getPBXID());}
 						}else{System.out.println("data mismatch"+oldvalues.get("Last Name")+"\t"+details.getLastname());}
 					}else{System.out.println("data mismatch"+oldvalues.get("First Name")+"\t"+details.getFirstname());}
-				}else{System.out.println("data mismatch"+oldvalues.get("Avaya Login ID")+"\t"+details.getAvayaLoginID());}
+				}else{System.out.println("data mismatch"+oldvalues.get("Agent ID")+"\t"+details.getAgentID());}
 			}else{System.out.println("data mismatch"+oldvalues.get("Lan ID")+"\t"+details.getLanID());}
 		}else {System.out.println("Old values data mismatch");}
 		return Status;
@@ -8692,27 +8698,30 @@ public class OCMReportsPage extends BasePage {
 				oldvalues.put(f[0], f[1]);
 		}
 		if(oldvalues.get("Lan ID").equals(details.getLanID())){
-			if(oldvalues.get("Avaya Login ID").equals(details.getAvayaLoginID())){
+			if(oldvalues.get("Avaya Login ID").equals(details.getAgentID())){
 				if(oldvalues.get("First Name").equals(details.getFirstname())){
 					if(oldvalues.get("Last Name").equals(details.getLastname())){
-						if(oldvalues.get("Profile").equals(details.getProfile())) {
-							if(oldvalues.get("OrgUnit").equals(details.getTeamName().split(">")[details.getTeamName().split(">").length-1])){
-								if(oldvalues.get("Supervisor Name").equals(details.getSupervisor())){                        
-									if(oldvalues.get("ModifyReason").equals(details.getDeleteReason()))
-										Status=true;
-									else{System.out.println("Reason data mismatch");}
-								}								
-								else {System.out.println("Supervisor Name data mismatch");}
+						if(oldvalues.get("PBX ID").equals(details.getPBXID())){
+							if(oldvalues.get("Profile").equals(details.getProfile())) {
+								if(oldvalues.get("OrgUnit").equals(details.getTeamName().split(">")[details.getTeamName().split(">").length-1])){
+									if(oldvalues.get("Supervisor Name").equals(details.getSupervisor())){                        
+										if(oldvalues.get("ModifyReason").equals(details.getDeleteReason()))
+											Status=true;
+										else{System.out.println("Reason data mismatch");}
+									}								
+									else {System.out.println("Supervisor Name data mismatch");}
+								}
+								else {System.out.println("OrgUnit data mismatch");}
 							}
-							else {System.out.println("OrgUnit data mismatch");}
-						}
-						else {System.out.println("Profile data mismatch");}
+							else {System.out.println("Profile data mismatch");}
+						}	
+						else {System.out.println("LastName data mismatch");}
 					}	
 					else {System.out.println("LastName data mismatch");}
 				}
 				else {System.out.println("FirstName data mismatch");}
 			}
-			else {System.out.println("AvayaLoginID data mismatch");}
+			else {System.out.println("Agent ID data mismatch");}
 		}
 		else {System.out.println("LanID data mismatch");}
 		return Status;

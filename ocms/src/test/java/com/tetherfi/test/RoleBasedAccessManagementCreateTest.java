@@ -267,7 +267,7 @@ public class RoleBasedAccessManagementCreateTest {
         Assert.assertTrue(roleBasedAccessManagementPage.verifyApprovedSectionDataafterapproval(userDetails));
     }
     
-    @Test(groups = { "Maker" },priority=20,enabled=false)//,dependsOnMethods="AddNewNewRoleBasedAccessManagementRecord")
+    @Test(groups = { "Maker" },priority=20,enabled=true)//,dependsOnMethods="AddNewNewRoleBasedAccessManagementRecord")
     public void AddDuplicateRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);

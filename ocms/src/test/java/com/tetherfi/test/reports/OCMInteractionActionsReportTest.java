@@ -29,7 +29,7 @@ public class OCMInteractionActionsReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());	
 	}
 
-	@Test(priority=1,description="To verify Show Report for Single Date")
+	/*@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMInteractionActionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -48,7 +48,7 @@ public class OCMInteractionActionsReportTest extends BaseTest {
 		OCMReportsPage.showReportInNewPage(reportDetails);
 		Assert.assertTrue(OCMReportsPage.verifyReportDisplayed(reportDetails),"show report in new tab assertion failed");
 		OCMReportsPage.switchBackToParentWindow();
-	} 
+	} */
 	
 //	 #PRDOCM-53186- To track data mismatch issue
 	//	@Test(priority=46,retryAnalyzer=com.tetherfi.utility.RetryAnalyzer.class,description="To verify Interaction Actions Report report UI data against DB")
@@ -64,7 +64,7 @@ public class OCMInteractionActionsReportTest extends BaseTest {
 		System.out.println("Main Report Data Match Successfull");	
 	}
 	
-	@Test(priority=4,description="Verify dropdown of all the coulmn headers")
+	/*@Test(priority=4,description="Verify dropdown of all the coulmn headers")
 	public void VerifyDropdownForAllTheColumns() throws Exception {		
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMInteractionActionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -547,7 +547,7 @@ public class OCMInteractionActionsReportTest extends BaseTest {
 		screenshot.captureScreen("OCMInteractionActionReport", "GroupBy");
 		Assert.assertTrue(InteractionActionReportPage.groupby());
 		screenshot.captureScreen("OCMInteractionActionReport", "AlreadyGroupBy");
-	}
+	}*/
 
 
 

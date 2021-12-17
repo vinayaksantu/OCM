@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -22,7 +23,7 @@ import com.tetherfi.utility.Screenshot;
 
 public class CEPEventMappingTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
-    @BeforeMethod
+    @BeforeClass
     public void NavigateToCepEventMappingPage() {
     	 HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
          homePage.navigateToOCMPage();

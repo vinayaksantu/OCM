@@ -33,7 +33,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertTrue(RoleBasedAccessManagementPage.isRoleBasedAccessManagementPageDisplayed(), "SMS Response Template Page assertion failed");
     }
 	
-	@Test(priority=1)
+	/*@Test(priority=1)
     public void RoleBasedAccessManagementPage() {
         RoleBasedAccessManagementPage RoleBasedAccessManagementPage = PageFactory.createPageInstance(driver, RoleBasedAccessManagementPage.class);
     	Assert.assertTrue(RoleBasedAccessManagementPage.verifylogo(),"User Role Mapping logo assertion failed");
@@ -190,7 +190,7 @@ Screenshot screenshot=new Screenshot(driver);
         RoleBasedAccessManagementPage.dragColumntoGroup("Role Name");
         RoleBasedAccessManagementPage.dragColumntoGroup("Role Name");
         Assert.assertTrue(RoleBasedAccessManagementPage.verifyDragColumntoGroup("Role Name"),"drag and drop assertion failed");
-    }
+    }*/
     
     @Test(priority=19)
     public void database() throws Exception {
@@ -201,7 +201,7 @@ Screenshot screenshot=new Screenshot(driver);
     	Assert.assertTrue(RoleBasedAccessManagementPage.verifyDatabase(UserDetails.getQuery()));
     }
     
-    @Test(priority=20)
+    /*@Test(priority=20)
     public void searchPage() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -233,7 +233,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertTrue(RoleBasedAccessManagementPage.verifyApprovedSectionData(UserDetails ),"invalidsearchwithwrongdata");
         screenshot.captureScreen("RoleBasedAccessManagementUITest","Invalid Search with wrong data");
         Assert.assertTrue(RoleBasedAccessManagementPage.verifyclearsearch(), "Clear All Assertion Failed");
-    }
+    }*/
     
     @AfterMethod
     public void afterEachMethod(Method method) throws InterruptedException {

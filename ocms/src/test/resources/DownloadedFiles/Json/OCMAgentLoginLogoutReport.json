@@ -2,7 +2,7 @@
   "JsonVersioningDetails": {
     "FileName": "OCMAgentLoginLogoutReport.json",
     "Location": "Reports",
-    "Version": "4.0.8.6",
+    "Version": "4.0.10.30",
     "LastModifiedDateTime": "06-11-2020 08:30:00 AM",
     "LastModifiedBy": "Shruthi",
     "Description": "Pagination, Search and Sort by using ORM"
@@ -57,7 +57,7 @@
           "DataFormatType": "varchar"
         },
         {
-          "Title": "Team Name",
+          "Title": "Org.Unit",
           "PropertyName": "TeamName",
           "IncludeInReport": true,
           "IncludeInMenu": true,

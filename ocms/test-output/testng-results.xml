@@ -1,632 +1,399 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="5" ignored="0" total="11" passed="6">
+<testng-results skipped="0" failed="4" ignored="0" total="22" passed="18">
   <reporter-output>
   </reporter-output>
-  <suite name="OCM Modules Test Automation" duration-ms="401131" started-at="2021-10-19T08:05:45 IST" finished-at="2021-10-19T08:12:26 IST">
+  <suite name="OCM Modules Test Automation" duration-ms="804825" started-at="2021-12-17T02:40:53 IST" finished-at="2021-12-17T02:54:18 IST">
     <groups>
+      <group name="Checker">
+        <method signature="UserRoleMappingCreateTest.ApproveforAddNewNewUserRoleMappingRecord()[pri:24, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="ApproveforAddNewNewUserRoleMappingRecord" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifyAuditTrailReportForApprove()[pri:25, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAuditTrailReportForApprove" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifyRecordApprovedDataSectionafterApproval()[pri:26, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyRecordApprovedDataSectionafterApproval" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.RejectforAddNewNewUserRoleMappingRecord()[pri:16, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="RejectforAddNewNewUserRoleMappingRecord" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifyAuditTrailReportForReject()[pri:17, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAuditTrailReportForReject" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+      </group> <!-- Checker -->
+      <group name="Maker">
+        <method signature="UserRoleMappingCreateTest.AddDuplicateRecord()[pri:27, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="AddDuplicateRecord" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.AddNewNewUserRoleMappingRecord()[pri:19, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="AddNewNewUserRoleMappingRecord" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.AddRejectRecord()[pri:14, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="AddRejectRecord" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.AddRevertRecord()[pri:10, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="AddRevertRecord" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifyAddCancelButton()[pri:1, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAddCancelButton" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifyAddRecordWithoutAgentID()[pri:5, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAddRecordWithoutAgentID" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifyAddRecordWithoutLanId()[pri:4, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAddRecordWithoutLanId" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifyAddRecordWithoutLastName()[pri:3, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAddRecordWithoutLastName" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifyAddRecordWithoutOrgUnitANDProfileAndSupervisor()[pri:6, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAddRecordWithoutOrgUnitANDProfileAndSupervisor" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifyAddRecordWithoutPBXID()[pri:5, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAddRecordWithoutPBXID" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifyAddRecordWithoutProfile()[pri:7, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAddRecordWithoutProfile" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifyAddRecordWithoutRole()[pri:9, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAddRecordWithoutRole" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifyAddRecordWithoutSupervisor()[pri:8, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAddRecordWithoutSupervisor" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifyAddRecordwithoutFirstName()[pri:2, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAddRecordwithoutFirstName" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord()[pri:21, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifyAuditTrailReportForCreate()[pri:20, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAuditTrailReportForCreate" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifyRevertForAddNewRecord()[pri:11, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyRevertForAddNewRecord" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifyApprovedDataSectionWithoutApproval()[pri:12, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyApprovedDataSectionWithoutApproval" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifyAuditTrailReportForRevert()[pri:13, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAuditTrailReportForRevert" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifySendForApprovalForAddNewNewUserRoleMappingRecord()[pri:22, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifySendForApprovalForAddNewNewUserRoleMappingRecord" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifyAuditTrailReportForSendForApproval()[pri:23, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAuditTrailReportForSendForApproval" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifySendForApprovalForAddNewRecord()[pri:15, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifySendForApprovalForAddNewRecord" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+        <method signature="UserRoleMappingCreateTest.VerifyRecordAfterRejection()[pri:18, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyRecordAfterRejection" class="com.tetherfi.test.UserRoleMappingCreateTest"/>
+      </group> <!-- Maker -->
     </groups>
-    <test name="OCMRegression" duration-ms="401131" started-at="2021-10-19T08:05:45 IST" finished-at="2021-10-19T08:12:26 IST">
-      <class name="com.tetherfi.test.ivr.CallBackAnnouncementTest">
-        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="openApplication" is-config="true" duration-ms="8619" started-at="2021-10-19T08:05:45 IST" finished-at="2021-10-19T08:05:54 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- openApplication -->
-        <test-method status="PASS" signature="NavigateToCallBackAnnouncementPage()[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="NavigateToCallBackAnnouncementPage" is-config="true" duration-ms="6641" started-at="2021-10-19T08:05:54 IST" finished-at="2021-10-19T08:06:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToCallBackAnnouncementPage -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="startTestCase" is-config="true" duration-ms="8" started-at="2021-10-19T08:06:00 IST" finished-at="2021-10-19T08:06:00 IST">
+    <test name="OCMRegression" duration-ms="804825" started-at="2021-12-17T02:40:53 IST" finished-at="2021-12-17T02:54:18 IST">
+      <class name="com.tetherfi.test.UserRoleMappingCreateTest">
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="26587" started-at="2021-12-17T02:40:53 IST" finished-at="2021-12-17T02:41:20 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.AddNewCallbackAnnouncementRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAddCancelButton() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="AddNewCallbackAnnouncementRecord()[pri:6, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="AddNewCallbackAnnouncementRecord" duration-ms="11551" started-at="2021-10-19T08:06:00 IST" finished-at="2021-10-19T08:06:12 IST">
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="PASS" signature="VerifyAddCancelButton()[pri:1, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAddCancelButton" duration-ms="4225" started-at="2021-12-17T02:41:20 IST" finished-at="2021-12-17T02:41:24 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- AddNewCallbackAnnouncementRecord -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="afterEachMethod" is-config="true" duration-ms="472" started-at="2021-10-19T08:06:12 IST" finished-at="2021-10-19T08:06:12 IST">
+        </test-method> <!-- VerifyAddCancelButton -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="7924" started-at="2021-12-17T02:41:24 IST" finished-at="2021-12-17T02:41:32 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.AddNewCallbackAnnouncementRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAddCancelButton() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-10-19T08:06:12 IST" finished-at="2021-10-19T08:06:12 IST">
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="41895" started-at="2021-12-17T02:41:32 IST" finished-at="2021-12-17T02:42:14 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.AddDuplicateCallBackAnnouncementRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAddRecordwithoutFirstName() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-10-19T08:06:12 IST" finished-at="2021-10-19T08:06:12 IST">
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="PASS" signature="VerifyAddRecordwithoutFirstName()[pri:2, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAddRecordwithoutFirstName" duration-ms="15274" started-at="2021-12-17T02:42:14 IST" finished-at="2021-12-17T02:42:29 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddRecordwithoutFirstName -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="4782" started-at="2021-12-17T02:42:29 IST" finished-at="2021-12-17T02:42:34 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.AddNewCallbackAnnouncementRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="AddDuplicateCallBackAnnouncementRecord()[pri:7, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="AddDuplicateCallBackAnnouncementRecord" duration-ms="12690" started-at="2021-10-19T08:06:12 IST" depends-on-methods="com.tetherfi.test.ivr.CallBackAnnouncementTest.AddNewCallbackAnnouncementRecord" finished-at="2021-10-19T08:06:25 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddDuplicateCallBackAnnouncementRecord -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="afterEachMethod" is-config="true" duration-ms="1564" started-at="2021-10-19T08:06:25 IST" finished-at="2021-10-19T08:06:27 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.AddDuplicateCallBackAnnouncementRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAddRecordwithoutFirstName() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-10-19T08:06:27 IST" finished-at="2021-10-19T08:06:27 IST">
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="14937" started-at="2021-12-17T02:42:34 IST" finished-at="2021-12-17T02:42:49 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.AddNewCallbackAnnouncementWithoutWavFile() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAddRecordWithoutLastName() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-10-19T08:06:27 IST" finished-at="2021-10-19T08:06:27 IST">
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="PASS" signature="VerifyAddRecordWithoutLastName()[pri:3, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAddRecordWithoutLastName" duration-ms="11956" started-at="2021-12-17T02:42:49 IST" finished-at="2021-12-17T02:43:01 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddRecordWithoutLastName -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="4056" started-at="2021-12-17T02:43:01 IST" finished-at="2021-12-17T02:43:05 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.AddDuplicateCallBackAnnouncementRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="AddNewCallbackAnnouncementWithoutWavFile()[pri:8, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="AddNewCallbackAnnouncementWithoutWavFile" duration-ms="8045" started-at="2021-10-19T08:06:27 IST" finished-at="2021-10-19T08:06:35 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddNewCallbackAnnouncementWithoutWavFile -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="afterEachMethod" is-config="true" duration-ms="430" started-at="2021-10-19T08:06:35 IST" finished-at="2021-10-19T08:06:35 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.AddNewCallbackAnnouncementWithoutWavFile() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAddRecordWithoutLastName() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="startTestCase" is-config="true" duration-ms="8" started-at="2021-10-19T08:06:35 IST" finished-at="2021-10-19T08:06:35 IST">
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="14607" started-at="2021-12-17T02:43:05 IST" finished-at="2021-12-17T02:43:20 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.AddNewCallbackAnnouncementWithoutStartTime() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAddRecordWithoutLanId() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-10-19T08:06:35 IST" finished-at="2021-10-19T08:06:35 IST">
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="PASS" signature="VerifyAddRecordWithoutLanId()[pri:4, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAddRecordWithoutLanId" duration-ms="12677" started-at="2021-12-17T02:43:20 IST" finished-at="2021-12-17T02:43:32 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddRecordWithoutLanId -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="4841" started-at="2021-12-17T02:43:32 IST" finished-at="2021-12-17T02:43:37 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.AddNewCallbackAnnouncementWithoutWavFile() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="AddNewCallbackAnnouncementWithoutStartTime()[pri:9, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="AddNewCallbackAnnouncementWithoutStartTime" duration-ms="11570" started-at="2021-10-19T08:06:35 IST" finished-at="2021-10-19T08:06:47 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddNewCallbackAnnouncementWithoutStartTime -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="afterEachMethod" is-config="true" duration-ms="394" started-at="2021-10-19T08:06:47 IST" finished-at="2021-10-19T08:06:47 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.AddNewCallbackAnnouncementWithoutStartTime() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAddRecordWithoutLanId() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-10-19T08:06:47 IST" finished-at="2021-10-19T08:06:47 IST">
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="14572" started-at="2021-12-17T02:43:37 IST" finished-at="2021-12-17T02:43:52 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.AddNewCallbackAnnouncementWithoutStartTime() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAddRecordWithoutAgentID() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="AddNewCallbackAnnouncementWithoutEndTime()[pri:10, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="AddNewCallbackAnnouncementWithoutEndTime" duration-ms="12327" started-at="2021-10-19T08:06:47 IST" finished-at="2021-10-19T08:07:00 IST">
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="PASS" signature="VerifyAddRecordWithoutAgentID()[pri:5, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAddRecordWithoutAgentID" duration-ms="12718" started-at="2021-12-17T02:43:52 IST" finished-at="2021-12-17T02:44:05 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- AddNewCallbackAnnouncementWithoutEndTime -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-10-19T08:06:47 IST" finished-at="2021-10-19T08:06:47 IST">
+        </test-method> <!-- VerifyAddRecordWithoutAgentID -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="5404" started-at="2021-12-17T02:44:05 IST" finished-at="2021-12-17T02:44:10 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.AddNewCallbackAnnouncementWithoutEndTime() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="afterEachMethod" is-config="true" duration-ms="413" started-at="2021-10-19T08:07:00 IST" finished-at="2021-10-19T08:07:00 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.AddNewCallbackAnnouncementWithoutEndTime() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAddRecordWithoutAgentID() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-10-19T08:07:00 IST" finished-at="2021-10-19T08:07:00 IST">
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="15200" started-at="2021-12-17T02:44:10 IST" finished-at="2021-12-17T02:44:25 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.AddNewCallbackAnnouncementWithoutEndTime() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAddRecordWithoutPBXID() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-10-19T08:07:00 IST" finished-at="2021-10-19T08:07:00 IST">
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="PASS" signature="VerifyAddRecordWithoutPBXID()[pri:5, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAddRecordWithoutPBXID" duration-ms="13816" started-at="2021-12-17T02:44:25 IST" finished-at="2021-12-17T02:44:39 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddRecordWithoutPBXID -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="8983" started-at="2021-12-17T02:44:39 IST" finished-at="2021-12-17T02:44:48 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.AddNewCallbackAnnouncementWithoutLanguage() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="AddNewCallbackAnnouncementWithoutLanguage()[pri:11, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="AddNewCallbackAnnouncementWithoutLanguage" duration-ms="11299" started-at="2021-10-19T08:07:00 IST" finished-at="2021-10-19T08:07:11 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddNewCallbackAnnouncementWithoutLanguage -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="afterEachMethod" is-config="true" duration-ms="405" started-at="2021-10-19T08:07:11 IST" finished-at="2021-10-19T08:07:12 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.AddNewCallbackAnnouncementWithoutLanguage() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAddRecordWithoutPBXID() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-10-19T08:07:12 IST" finished-at="2021-10-19T08:07:12 IST">
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="14678" started-at="2021-12-17T02:44:48 IST" finished-at="2021-12-17T02:45:03 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.AddNewCallbackAnnouncementWithoutLanguage() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAddRecordWithoutOrgUnitANDProfileAndSupervisor() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="startTestCase" is-config="true" duration-ms="8" started-at="2021-10-19T08:07:12 IST" finished-at="2021-10-19T08:07:12 IST">
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="PASS" signature="VerifyAddRecordWithoutOrgUnitANDProfileAndSupervisor()[pri:6, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAddRecordWithoutOrgUnitANDProfileAndSupervisor" duration-ms="9105" started-at="2021-12-17T02:45:03 IST" finished-at="2021-12-17T02:45:12 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddRecordWithoutOrgUnitANDProfileAndSupervisor -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="4448" started-at="2021-12-17T02:45:12 IST" finished-at="2021-12-17T02:45:16 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.EditCallBackAnnouncementRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAddRecordWithoutOrgUnitANDProfileAndSupervisor() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method status="FAIL" signature="EditCallBackAnnouncementRecord()[pri:17, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="EditCallBackAnnouncementRecord" duration-ms="74469" started-at="2021-10-19T08:07:12 IST" finished-at="2021-10-19T08:08:26 IST">
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.cssSelector: #toast-container .toast-message' (tried for 30 second(s) with 500 milliseconds interval)]]>
-            </message>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="14219" started-at="2021-12-17T02:45:16 IST" finished-at="2021-12-17T02:45:30 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAddRecordWithoutProfile() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="PASS" signature="VerifyAddRecordWithoutProfile()[pri:7, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAddRecordWithoutProfile" duration-ms="12745" started-at="2021-12-17T02:45:30 IST" finished-at="2021-12-17T02:45:43 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddRecordWithoutProfile -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="5226" started-at="2021-12-17T02:45:43 IST" finished-at="2021-12-17T02:45:48 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAddRecordWithoutProfile() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="18231" started-at="2021-12-17T02:45:48 IST" finished-at="2021-12-17T02:46:07 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAddRecordWithoutSupervisor() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="PASS" signature="VerifyAddRecordWithoutSupervisor()[pri:8, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAddRecordWithoutSupervisor" duration-ms="13599" started-at="2021-12-17T02:46:07 IST" finished-at="2021-12-17T02:46:20 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddRecordWithoutSupervisor -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="5041" started-at="2021-12-17T02:46:20 IST" finished-at="2021-12-17T02:46:25 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAddRecordWithoutSupervisor() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="17487" started-at="2021-12-17T02:46:25 IST" finished-at="2021-12-17T02:46:43 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAddRecordWithoutRole() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="PASS" signature="VerifyAddRecordWithoutRole()[pri:9, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAddRecordWithoutRole" duration-ms="11594" started-at="2021-12-17T02:46:43 IST" finished-at="2021-12-17T02:46:54 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddRecordWithoutRole -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="3932" started-at="2021-12-17T02:46:54 IST" finished-at="2021-12-17T02:46:58 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAddRecordWithoutRole() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="16747" started-at="2021-12-17T02:46:58 IST" finished-at="2021-12-17T02:47:15 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.AddRevertRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="PASS" signature="AddRevertRecord()[pri:10, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="AddRevertRecord" duration-ms="17782" started-at="2021-12-17T02:47:15 IST" finished-at="2021-12-17T02:47:33 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddRevertRecord -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="4862" started-at="2021-12-17T02:47:33 IST" finished-at="2021-12-17T02:47:38 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.AddRevertRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="13705" started-at="2021-12-17T02:47:38 IST" finished-at="2021-12-17T02:47:51 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyRevertForAddNewRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="PASS" signature="VerifyRevertForAddNewRecord()[pri:11, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyRevertForAddNewRecord" duration-ms="15157" started-at="2021-12-17T02:47:51 IST" depends-on-methods="com.tetherfi.test.UserRoleMappingCreateTest.AddRevertRecord" finished-at="2021-12-17T02:48:07 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyRevertForAddNewRecord -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="3928" started-at="2021-12-17T02:48:07 IST" finished-at="2021-12-17T02:48:10 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyRevertForAddNewRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="13980" started-at="2021-12-17T02:48:10 IST" finished-at="2021-12-17T02:48:24 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyApprovedDataSectionWithoutApproval() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="PASS" signature="VerifyApprovedDataSectionWithoutApproval()[pri:12, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyApprovedDataSectionWithoutApproval" duration-ms="4958" started-at="2021-12-17T02:48:24 IST" depends-on-methods="com.tetherfi.test.UserRoleMappingCreateTest.VerifyRevertForAddNewRecord" finished-at="2021-12-17T02:48:29 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyApprovedDataSectionWithoutApproval -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="5594" started-at="2021-12-17T02:48:29 IST" finished-at="2021-12-17T02:48:35 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyApprovedDataSectionWithoutApproval() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="15690" started-at="2021-12-17T02:48:35 IST" finished-at="2021-12-17T02:48:51 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAuditTrailReportForRevert() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="FAIL" signature="VerifyAuditTrailReportForRevert()[pri:13, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAuditTrailReportForRevert" duration-ms="25506" started-at="2021-12-17T02:48:51 IST" depends-on-methods="com.tetherfi.test.UserRoleMappingCreateTest.VerifyApprovedDataSectionWithoutApproval" finished-at="2021-12-17T02:49:16 IST">
+          <exception class="java.lang.NullPointerException">
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.cssSelector: #toast-container .toast-message' (tried for 30 second(s) with 500 milliseconds interval)
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:129)
-at com.tetherfi.pages.CallbackAnnouncementPage.verifySuccessMessage(CallbackAnnouncementPage.java:595)
-at com.tetherfi.test.ivr.CallBackAnnouncementTest.EditCallBackAnnouncementRecord(CallBackAnnouncementTest.java:191)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#toast-container .toast-message"}
-  (Session info: chrome=94.0.4606.81)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'TTF-BLR-SANTOSH', ip: '192.168.50.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 94.0.4606.81, chrome: {chromedriverVersion: 94.0.4606.41 (333e85df3c9b6..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:53188}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 484c1fd2ace79692c08e1a0895f4a7e9
-*** Element info: {Using=css selector, value=#toast-container .toast-message}
-at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-at java.lang.reflect.Constructor.newInstance(Unknown Source)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-at com.sun.proxy.$Proxy11.isDisplayed(Unknown Source)
-at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-... 31 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- EditCallBackAnnouncementRecord -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="afterEachMethod" is-config="true" duration-ms="2526" started-at="2021-10-19T08:08:26 IST" finished-at="2021-10-19T08:08:29 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.EditCallBackAnnouncementRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-10-19T08:08:29 IST" finished-at="2021-10-19T08:08:29 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.EditCallBackAnnouncementRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-10-19T08:08:29 IST" finished-at="2021-10-19T08:08:29 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.EditWithoutModifyReasonCallbackannouncementRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method status="FAIL" signature="EditWithoutModifyReasonCallbackannouncementRecord()[pri:18, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="EditWithoutModifyReasonCallbackannouncementRecord" duration-ms="60746" started-at="2021-10-19T08:08:29 IST" finished-at="2021-10-19T08:09:29 IST">
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.cssSelector: .fa-search' (tried for 30 second(s) with 500 milliseconds interval)]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.cssSelector: .fa-search' (tried for 30 second(s) with 500 milliseconds interval)
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:129)
-at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:196)
-at com.tetherfi.pages.CallbackAnnouncementPage.searchCallbackAnnouncementRecord(CallbackAnnouncementPage.java:391)
-at com.tetherfi.pages.CallbackAnnouncementPage.editwithoutModifyreasonRecord(CallbackAnnouncementPage.java:843)
-at com.tetherfi.test.ivr.CallBackAnnouncementTest.EditWithoutModifyReasonCallbackannouncementRecord(CallBackAnnouncementTest.java:200)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":".fa-search"}
-  (Session info: chrome=94.0.4606.81)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'TTF-BLR-SANTOSH', ip: '192.168.50.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 94.0.4606.81, chrome: {chromedriverVersion: 94.0.4606.41 (333e85df3c9b6..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:53188}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 484c1fd2ace79692c08e1a0895f4a7e9
-*** Element info: {Using=css selector, value=.fa-search}
-at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-at java.lang.reflect.Constructor.newInstance(Unknown Source)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-at com.sun.proxy.$Proxy11.isDisplayed(Unknown Source)
-at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-... 33 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- EditWithoutModifyReasonCallbackannouncementRecord -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="afterEachMethod" is-config="true" duration-ms="6061" started-at="2021-10-19T08:09:29 IST" finished-at="2021-10-19T08:09:36 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.EditWithoutModifyReasonCallbackannouncementRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="endTestCase" is-config="true" duration-ms="8" started-at="2021-10-19T08:09:36 IST" finished-at="2021-10-19T08:09:36 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.EditWithoutModifyReasonCallbackannouncementRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-10-19T08:09:36 IST" finished-at="2021-10-19T08:09:36 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.VerifyCancelButtonAtEditCallbackAnnouncementRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method status="FAIL" signature="VerifyCancelButtonAtEditCallbackAnnouncementRecord()[pri:19, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="VerifyCancelButtonAtEditCallbackAnnouncementRecord" duration-ms="68926" started-at="2021-10-19T08:09:36 IST" finished-at="2021-10-19T08:10:44 IST">
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.cssSelector: .k-grid-edit' (tried for 30 second(s) with 500 milliseconds interval)]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.cssSelector: .k-grid-edit' (tried for 30 second(s) with 500 milliseconds interval)
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:129)
-at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:196)
-at com.tetherfi.pages.CallbackAnnouncementPage.editcancel(CallbackAnnouncementPage.java:855)
-at com.tetherfi.test.ivr.CallBackAnnouncementTest.VerifyCancelButtonAtEditCallbackAnnouncementRecord(CallBackAnnouncementTest.java:210)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":".k-grid-edit"}
-  (Session info: chrome=94.0.4606.81)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'TTF-BLR-SANTOSH', ip: '192.168.50.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 94.0.4606.81, chrome: {chromedriverVersion: 94.0.4606.41 (333e85df3c9b6..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:53188}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 484c1fd2ace79692c08e1a0895f4a7e9
-*** Element info: {Using=css selector, value=.k-grid-edit}
-at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-at java.lang.reflect.Constructor.newInstance(Unknown Source)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-at com.sun.proxy.$Proxy11.isDisplayed(Unknown Source)
-at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-... 32 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyCancelButtonAtEditCallbackAnnouncementRecord -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="afterEachMethod" is-config="true" duration-ms="2663" started-at="2021-10-19T08:10:44 IST" finished-at="2021-10-19T08:10:47 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.VerifyCancelButtonAtEditCallbackAnnouncementRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-10-19T08:10:47 IST" finished-at="2021-10-19T08:10:47 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.VerifyCancelButtonAtEditCallbackAnnouncementRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="startTestCase" is-config="true" duration-ms="8" started-at="2021-10-19T08:10:47 IST" finished-at="2021-10-19T08:10:47 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.DeleteWithoutDeleteReasonRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method status="FAIL" signature="DeleteWithoutDeleteReasonRecord()[pri:22, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="DeleteWithoutDeleteReasonRecord" duration-ms="12750" started-at="2021-10-19T08:10:47 IST" finished-at="2021-10-19T08:11:00 IST">
-          <exception class="org.openqa.selenium.StaleElementReferenceException">
-            <message>
-              <![CDATA[stale element reference: element is not attached to the page document
-  (Session info: chrome=94.0.4606.81)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'TTF-BLR-SANTOSH', ip: '192.168.50.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 94.0.4606.81, chrome: {chromedriverVersion: 94.0.4606.41 (333e85df3c9b6..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:53188}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 484c1fd2ace79692c08e1a0895f4a7e9]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=94.0.4606.81)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'TTF-BLR-SANTOSH', ip: '192.168.50.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 94.0.4606.81, chrome: {chromedriverVersion: 94.0.4606.41 (333e85df3c9b6..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:53188}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 484c1fd2ace79692c08e1a0895f4a7e9
-at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-at java.lang.reflect.Constructor.newInstance(Unknown Source)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:326)
-at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:136)
-at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:341)
-at com.tetherfi.pages.CallbackAnnouncementPage.searchCallbackAnnouncementRecord(CallbackAnnouncementPage.java:396)
-at com.tetherfi.pages.CallbackAnnouncementPage.deleteWithoutModifyReasonRecord(CallbackAnnouncementPage.java:914)
-at com.tetherfi.test.ivr.CallBackAnnouncementTest.DeleteWithoutDeleteReasonRecord(CallBackAnnouncementTest.java:240)
+              <![CDATA[java.lang.NullPointerException
+at com.tetherfi.pages.OCMReportsPage.verifyUserRoleMappingCreate(OCMReportsPage.java:7556)
+at com.tetherfi.test.UserRoleMappingCreateTest.VerifyAuditTrailReportForRevert(UserRoleMappingCreateTest.java:205)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -657,93 +424,116 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- DeleteWithoutDeleteReasonRecord -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="afterEachMethod" is-config="true" duration-ms="368" started-at="2021-10-19T08:11:00 IST" finished-at="2021-10-19T08:11:00 IST">
+        </test-method> <!-- VerifyAuditTrailReportForRevert -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="4065" started-at="2021-12-17T02:49:16 IST" finished-at="2021-12-17T02:49:20 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.DeleteWithoutDeleteReasonRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAuditTrailReportForRevert() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-10-19T08:11:00 IST" finished-at="2021-10-19T08:11:00 IST">
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="15424" started-at="2021-12-17T02:49:20 IST" finished-at="2021-12-17T02:49:36 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.DeleteWithoutDeleteReasonRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.AddRejectRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-10-19T08:11:00 IST" finished-at="2021-10-19T08:11:00 IST">
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="PASS" signature="AddRejectRecord()[pri:14, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="AddRejectRecord" duration-ms="18185" started-at="2021-12-17T02:49:36 IST" finished-at="2021-12-17T02:49:54 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddRejectRecord -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="4752" started-at="2021-12-17T02:49:54 IST" finished-at="2021-12-17T02:49:59 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.DeleteCallbackAnnouncementRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.AddRejectRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method status="FAIL" signature="DeleteCallbackAnnouncementRecord()[pri:24, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="DeleteCallbackAnnouncementRecord" duration-ms="85622" started-at="2021-10-19T08:11:00 IST" finished-at="2021-10-19T08:12:26 IST">
-          <exception class="org.openqa.selenium.NoSuchWindowException">
-            <message>
-              <![CDATA[no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=94.0.4606.81)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'TTF-BLR-SANTOSH', ip: '192.168.50.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 94.0.4606.81, chrome: {chromedriverVersion: 94.0.4606.41 (333e85df3c9b6..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:53188}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 484c1fd2ace79692c08e1a0895f4a7e9
-*** Element info: {Using=id, value=1001sMaskedTextToSearch}]]>
-            </message>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="14383" started-at="2021-12-17T02:49:59 IST" finished-at="2021-12-17T02:50:13 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifySendForApprovalForAddNewRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="PASS" signature="VerifySendForApprovalForAddNewRecord()[pri:15, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifySendForApprovalForAddNewRecord" duration-ms="13861" started-at="2021-12-17T02:50:13 IST" depends-on-methods="com.tetherfi.test.UserRoleMappingCreateTest.AddRejectRecord" finished-at="2021-12-17T02:50:27 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySendForApprovalForAddNewRecord -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="3889" started-at="2021-12-17T02:50:27 IST" finished-at="2021-12-17T02:50:31 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifySendForApprovalForAddNewRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="13644" started-at="2021-12-17T02:50:31 IST" finished-at="2021-12-17T02:50:44 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.RejectforAddNewNewUserRoleMappingRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="PASS" signature="RejectforAddNewNewUserRoleMappingRecord()[pri:16, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="RejectforAddNewNewUserRoleMappingRecord" duration-ms="16122" started-at="2021-12-17T02:50:44 IST" depends-on-methods="com.tetherfi.test.UserRoleMappingCreateTest.VerifySendForApprovalForAddNewRecord" finished-at="2021-12-17T02:51:01 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- RejectforAddNewNewUserRoleMappingRecord -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="3921" started-at="2021-12-17T02:51:01 IST" finished-at="2021-12-17T02:51:05 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.RejectforAddNewNewUserRoleMappingRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="15469" started-at="2021-12-17T02:51:05 IST" finished-at="2021-12-17T02:51:20 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAuditTrailReportForReject() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="FAIL" signature="VerifyAuditTrailReportForReject()[pri:17, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAuditTrailReportForReject" duration-ms="25408" started-at="2021-12-17T02:51:20 IST" depends-on-methods="com.tetherfi.test.UserRoleMappingCreateTest.RejectforAddNewNewUserRoleMappingRecord" finished-at="2021-12-17T02:51:45 IST">
+          <exception class="java.lang.NullPointerException">
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=94.0.4606.81)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'TTF-BLR-SANTOSH', ip: '192.168.50.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 94.0.4606.81, chrome: {chromedriverVersion: 94.0.4606.41 (333e85df3c9b6..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:53188}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 484c1fd2ace79692c08e1a0895f4a7e9
-*** Element info: {Using=id, value=1001sMaskedTextToSearch}
-at sun.reflect.GeneratedConstructorAccessor39.newInstance(Unknown Source)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-at java.lang.reflect.Constructor.newInstance(Unknown Source)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
-at org.openqa.selenium.By$ById.findElement(By.java:188)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-at com.sun.proxy.$Proxy11.toString(Unknown Source)
-at java.lang.String.valueOf(Unknown Source)
-at java.lang.StringBuilder.append(Unknown Source)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.toString(ExpectedConditions.java:305)
-at java.lang.String.valueOf(Unknown Source)
-at java.lang.StringBuilder.append(Unknown Source)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:268)
-at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:129)
-at com.tetherfi.pages.BasePage.enterValueToTxtBox1(BasePage.java:168)
-at com.tetherfi.pages.CallbackAnnouncementPage.searchCallbackAnnouncementRecord(CallbackAnnouncementPage.java:397)
-at com.tetherfi.pages.CallbackAnnouncementPage.deleteCallbackAnnouncementRecord(CallbackAnnouncementPage.java:933)
-at com.tetherfi.test.ivr.CallBackAnnouncementTest.DeleteCallbackAnnouncementRecord(CallBackAnnouncementTest.java:259)
+              <![CDATA[java.lang.NullPointerException
+at com.tetherfi.pages.OCMReportsPage.verifyUserRoleMappingCreate(OCMReportsPage.java:7556)
+at com.tetherfi.test.UserRoleMappingCreateTest.VerifyAuditTrailReportForReject(UserRoleMappingCreateTest.java:247)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -774,61 +564,70 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- DeleteCallbackAnnouncementRecord -->
-        <test-method status="FAIL" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="afterEachMethod" is-config="true" duration-ms="29" started-at="2021-10-19T08:12:26 IST" finished-at="2021-10-19T08:12:26 IST">
+        </test-method> <!-- VerifyAuditTrailReportForReject -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="4662" started-at="2021-12-17T02:51:45 IST" finished-at="2021-12-17T02:51:50 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.DeleteCallbackAnnouncementRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAuditTrailReportForReject() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
-          <exception class="org.openqa.selenium.NoSuchWindowException">
-            <message>
-              <![CDATA[no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=94.0.4606.81)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'TTF-BLR-SANTOSH', ip: '192.168.50.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 94.0.4606.81, chrome: {chromedriverVersion: 94.0.4606.41 (333e85df3c9b6..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:53188}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 484c1fd2ace79692c08e1a0895f4a7e9]]>
-            </message>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="14699" started-at="2021-12-17T02:51:50 IST" finished-at="2021-12-17T02:52:05 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.AddNewNewUserRoleMappingRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="PASS" signature="AddNewNewUserRoleMappingRecord()[pri:19, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="AddNewNewUserRoleMappingRecord" duration-ms="18352" started-at="2021-12-17T02:52:05 IST" finished-at="2021-12-17T02:52:23 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddNewNewUserRoleMappingRecord -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="4683" started-at="2021-12-17T02:52:23 IST" finished-at="2021-12-17T02:52:28 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.AddNewNewUserRoleMappingRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="15238" started-at="2021-12-17T02:52:28 IST" finished-at="2021-12-17T02:52:43 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAuditTrailReportForCreate() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="FAIL" signature="VerifyAuditTrailReportForCreate()[pri:20, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAuditTrailReportForCreate" duration-ms="26205" started-at="2021-12-17T02:52:43 IST" depends-on-methods="com.tetherfi.test.UserRoleMappingCreateTest.AddNewNewUserRoleMappingRecord" finished-at="2021-12-17T02:53:09 IST">
+          <exception class="java.lang.NullPointerException">
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=94.0.4606.81)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'TTF-BLR-SANTOSH', ip: '192.168.50.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 94.0.4606.81, chrome: {chromedriverVersion: 94.0.4606.41 (333e85df3c9b6..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:53188}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 484c1fd2ace79692c08e1a0895f4a7e9
-at sun.reflect.GeneratedConstructorAccessor39.newInstance(Unknown Source)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-at java.lang.reflect.Constructor.newInstance(Unknown Source)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
-at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:865)
-at com.tetherfi.test.ivr.CallBackAnnouncementTest.afterEachMethod(CallBackAnnouncementTest.java:413)
+              <![CDATA[java.lang.NullPointerException
+at com.tetherfi.pages.OCMReportsPage.verifyUserRoleMappingCreate(OCMReportsPage.java:7556)
+at com.tetherfi.test.UserRoleMappingCreateTest.VerifyAuditTrailReportForCreate(UserRoleMappingCreateTest.java:280)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 at java.lang.reflect.Method.invoke(Unknown Source)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
-at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
-at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
-at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
-at org.testng.internal.TestInvoker.runAfterGroupsConfigurations(TestInvoker.java:658)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:642)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
 at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
 at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
 at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
@@ -853,103 +652,111 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAuditTrailReportForCreate -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="4400" started-at="2021-12-17T02:53:09 IST" finished-at="2021-12-17T02:53:14 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAuditTrailReportForCreate() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="SKIP" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="startTestCase" is-config="true" duration-ms="-1634611346494" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="15284" started-at="2021-12-17T02:53:14 IST" finished-at="2021-12-17T02:53:29 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method status="SKIP" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="endTestCase" is-config="true" duration-ms="-1634611346494" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="FAIL" signature="VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord()[pri:21, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord" duration-ms="7009" started-at="2021-12-17T02:53:29 IST" finished-at="2021-12-17T02:53:36 IST">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at com.tetherfi.pages.NewUserRoleMappingPage.verifyNewValues(NewUserRoleMappingPage.java:1423)
+at com.tetherfi.pages.NewUserRoleMappingPage.verifyAuditTrail(NewUserRoleMappingPage.java:1405)
+at com.tetherfi.test.UserRoleMappingCreateTest.VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord(UserRoleMappingCreateTest.java:290)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method status="SKIP" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="afterEachMethod" is-config="true" duration-ms="-1634611346518" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method status="SKIP" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="endTestCase" is-config="true" duration-ms="-1634611346526" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method status="SKIP" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="startTestCase" is-config="true" duration-ms="-1634611346534" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method status="SKIP" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="afterEachMethod" is-config="true" duration-ms="-1634611346550" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method status="SKIP" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="endTestCase" is-config="true" duration-ms="-1634611346558" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method status="SKIP" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="startTestCase" is-config="true" duration-ms="-1634611346566" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method status="SKIP" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="endTestCase" is-config="true" duration-ms="-1634611346598" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method status="SKIP" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="afterEachMethod" is-config="true" duration-ms="-1634611346598" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method status="SKIP" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="startTestCase" is-config="true" duration-ms="-1634611346606" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method status="SKIP" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="endTestCase" is-config="true" duration-ms="-1634611346622" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method status="SKIP" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="afterEachMethod" is-config="true" duration-ms="-1634611346622" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method status="SKIP" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="startTestCase" is-config="true" duration-ms="-1634611346630" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method status="SKIP" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="endTestCase" is-config="true" duration-ms="-1634611346646" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method status="SKIP" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="afterEachMethod" is-config="true" duration-ms="-1634611346646" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method status="SKIP" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="startTestCase" is-config="true" duration-ms="-1634611346654" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method status="SKIP" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="afterEachMethod" is-config="true" duration-ms="-1634611346670" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
+        </test-method> <!-- VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="4611" started-at="2021-12-17T02:53:36 IST" finished-at="2021-12-17T02:53:41 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="SKIP" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="startTestCase" is-config="true" duration-ms="-1634611346670" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
+        <test-method status="PASS" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="NavigateToNewUserRoleMappingPage" is-config="true" duration-ms="13724" started-at="2021-12-17T02:53:41 IST" finished-at="2021-12-17T02:53:54 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.AddDuplicateRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method status="SKIP" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="endTestCase" is-config="true" duration-ms="-1634611346670" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method status="PASS" signature="AddDuplicateRecord()[pri:27, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="AddDuplicateRecord" duration-ms="17627" started-at="2021-12-17T02:53:54 IST" finished-at="2021-12-17T02:54:12 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method status="SKIP" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="afterEachMethod" is-config="true" duration-ms="-1634611346694" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
+        </test-method> <!-- AddDuplicateRecord -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserRoleMappingCreateTest@7dee835]" name="afterEachMethod" is-config="true" duration-ms="6001" started-at="2021-12-17T02:54:12 IST" finished-at="2021-12-17T02:54:18 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserRoleMappingCreateTest.AddDuplicateRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="SKIP" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="endTestCase" is-config="true" duration-ms="-1634611346702" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method status="SKIP" signature="tearDown()[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@7d0100ea]" name="tearDown" is-config="true" duration-ms="-1634611346718" started-at="2021-10-19T08:12:26 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.tetherfi.test.ivr.CallBackAnnouncementTest -->
+      </class> <!-- com.tetherfi.test.UserRoleMappingCreateTest -->
     </test> <!-- OCMRegression -->
   </suite> <!-- OCM Modules Test Automation -->
 </testng-results>

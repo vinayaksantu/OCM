@@ -37,7 +37,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		ftp.transferFileFromRemote(remoteFilePath,destinationFilePath);
 	}
 
-	@Test(priority=1,description="To verify Show Report for Single Date")
+	/*@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowOCMAgentSummaryReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -657,7 +657,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifyArrowMoveForFirstAndLastPageForDrillDownOne(reportDetails),"arrow move for first and last page assertion failed");
 	} 
 	
-	@Test(priority=58,description="To Verify Total Number of Items Per Page Details for Drill Down One")
+	@Test(priority=57,description="To Verify Total Number of Items Per Page Details for Drill Down One")
 	public void VerifyTotalNumberOfItemsPerPageDetailsFoDrillDownOne() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -666,11 +666,11 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifyTotalNumberOfItemsPerPageDetailsForDrillDownOne(),"item per page assertion failed");
-	}
+	}*/
 
 
 //#58476, #58469 to track grid report issue
-	@Test(priority=55, description="To verify report data against DB")
+	@Test(priority=58, description="To verify report data against DB")
 	public void database() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
@@ -682,7 +682,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Thread.sleep(3000);
 		Assert.assertTrue(AgentSummaryReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails),"Main Report Data Mismatch");
 		System.out.println("Main Report Data Match Successfull");
-		/*List<String> agentList = new ArrayList<>();
+		List<String> agentList = new ArrayList<>();
 		agentList = AgentSummaryReportPage.getAgents();
 		System.out.println(agentList);
 		int k=0;
@@ -717,7 +717,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 			}
 			AgentSummaryReportPage.closeDrillOneReport();
 			Thread.sleep(1000);
-		}*/
+		}
 	}
 	
 	
