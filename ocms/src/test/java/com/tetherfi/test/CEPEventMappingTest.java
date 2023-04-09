@@ -44,7 +44,7 @@ public class CEPEventMappingTest extends BaseTest {
     	screenshot.captureScreen("CepEventMappingTest","minimize window");
     }
     
-  	@Test(priority=2)
+  	@Test(priority=2,enabled=true)
     public void VerifyDropdownForAllTheColumns() {
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
         Assert.assertTrue(CepEventMappingPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
