@@ -380,7 +380,7 @@ public class UserRoleMappingWMCPage extends BasePage {
         enterValueToTxtField(lastnameTextBox,details.getLastname());
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
-        enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
+        //enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
         selectWebElement(TeamNameDropDown);
         Thread.sleep(3000);
         ChooseTeamHeirarchy(details.getTeamName());
@@ -428,7 +428,7 @@ public class UserRoleMappingWMCPage extends BasePage {
         enterValueToTxtField(lastnameTextBox,details.getLastname());
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
-        enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
+       // enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
         selectWebElement(TeamNameDropDown);
         try {
         	Thread.sleep(1000);
@@ -450,7 +450,7 @@ public class UserRoleMappingWMCPage extends BasePage {
         enterValueToTxtField(firstnameTextBox,details.getFirstname());
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
-        enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
+       // enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
         selectWebElement(TeamNameDropDown);
         try {
         	Thread.sleep(1000);
@@ -472,7 +472,7 @@ public class UserRoleMappingWMCPage extends BasePage {
         enterValueToTxtField(firstnameTextBox,details.getFirstname());
         selectWebElement(lastnameTextBox);
         enterValueToTxtField(lastnameTextBox,details.getLastname());
-        enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
+       // enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
         selectWebElement(TeamNameDropDown);
         try {
         	Thread.sleep(1000);
@@ -519,7 +519,7 @@ public class UserRoleMappingWMCPage extends BasePage {
         enterValueToTxtField(lastnameTextBox,details.getLastname());
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
-        enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
+       // enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
         selectWebElement(TeamNameDropDown);
         try {
         	Thread.sleep(1000);
@@ -543,7 +543,7 @@ public class UserRoleMappingWMCPage extends BasePage {
         enterValueToTxtField(lastnameTextBox,details.getLastname());
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
-        enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
+       // enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
         selectWebElement(profilesDropdown);
         selectWebElement(TeamNameDropDown);
         try {
@@ -568,7 +568,7 @@ public class UserRoleMappingWMCPage extends BasePage {
         enterValueToTxtField(lastnameTextBox,details.getLastname());
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
-        enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
+       // enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
         selectWebElement(TeamNameDropDown);
         try {
         	Thread.sleep(1000);
@@ -590,7 +590,7 @@ public class UserRoleMappingWMCPage extends BasePage {
         enterValueToTxtField(lastnameTextBox,details.getLastname());
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
-        enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
+       // enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
         editProfile(details.getProfile(),details.getSupervisor());
         selectWebElement(RoleDropDown);
         selectDropdownFromVisibleText(RoleListBox,details.getRole());

@@ -629,7 +629,7 @@ public class UserOnBoardingWMCPage extends BasePage {
 		selectWebElement(lanIdTextBox);
 		enterValueToTxtFieldWithoutClear(lanIdTextBox,details.getLanID());
 		selectWebElement(numericTextbox.get(0));
-		enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+	//	enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
 		selectWebElement(teamnameDropdown);
 		try {
 			Thread.sleep(1000);
@@ -664,7 +664,7 @@ public class UserOnBoardingWMCPage extends BasePage {
 		selectWebElement(lanIdTextBox);
 		enterValueToTxtFieldWithoutClear(lanIdTextBox,details.getLanID());
 		selectWebElement(numericTextbox.get(0));
-		enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		//enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
 		selectWebElement(teamnameDropdown);
 		try {
 			Thread.sleep(1000);
@@ -697,7 +697,7 @@ public class UserOnBoardingWMCPage extends BasePage {
 		selectWebElement(lastnameTextBox);
 		enterValueToTxtFieldWithoutClear(lastnameTextBox,details.getLastname());
 		selectWebElement(numericTextbox.get(0));
-		enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		//enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
 		selectWebElement(teamnameDropdown);
 		try {
 			Thread.sleep(1000);
@@ -768,7 +768,7 @@ public class UserOnBoardingWMCPage extends BasePage {
 		selectWebElement(lanIdTextBox);
 		enterValueToTxtFieldWithoutClear(lanIdTextBox,details.getLanID());
 		selectWebElement(numericTextbox.get(0));
-		enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		//enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
 		selectProfile(details.getProfile(),"NA");
 		Thread.sleep(1000);
 		selectWebElement(nextButton.get(0));
@@ -796,7 +796,7 @@ public class UserOnBoardingWMCPage extends BasePage {
 		selectWebElement(lanIdTextBox);
 		enterValueToTxtFieldWithoutClear(lanIdTextBox,details.getLanID());
 		selectWebElement(numericTextbox.get(0));
-		enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		//enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
 		selectWebElement(teamnameDropdown);
 		try {
 			Thread.sleep(1000);
@@ -830,7 +830,7 @@ public class UserOnBoardingWMCPage extends BasePage {
 		selectWebElement(lanIdTextBox);
 		enterValueToTxtFieldWithoutClear(lanIdTextBox,details.getLanID());
 		selectWebElement(numericTextbox.get(0));
-		enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		//enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
 		selectWebElement(teamnameDropdown);
 		try {
 			Thread.sleep(1000);
@@ -863,7 +863,7 @@ public class UserOnBoardingWMCPage extends BasePage {
 		selectWebElement(lanIdTextBox);
 		enterValueToTxtFieldWithoutClear(lanIdTextBox,details.getLanID());
 		selectWebElement(numericTextbox.get(0));
-		enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		//enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
 		selectWebElement(teamnameDropdown);
 		try {
 			Thread.sleep(1000);

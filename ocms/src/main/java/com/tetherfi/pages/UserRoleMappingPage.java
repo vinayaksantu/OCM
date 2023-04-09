@@ -183,7 +183,7 @@ public class UserRoleMappingPage extends BasePage {
         selectWebElement(saveBtn);*/
             selectWebElement(editTeamNameDropDown);
             selectDropdownFromVisibleText(teamIDListBox,details.getTeamName());
-            enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
+            //enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
             editProfile(details.getProfile(),details.getSupervisor());
             btnClick(editFormSaveBtn);}
     }
@@ -209,7 +209,7 @@ public class UserRoleMappingPage extends BasePage {
         }
         selectWebElement(editTeamNameDropDown);
         selectDropdownFromVisibleText(teamIDListBox,details.getTeamName());
-        enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
+       // enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
         editProfile(details.getProfile(),details.getSupervisor());
         enterValueToTxtField(modifyReasonTextBox,details.getModifyReason());
         btnClick(editFormSaveBtn);

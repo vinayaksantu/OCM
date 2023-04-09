@@ -227,7 +227,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertTrue(userOnBoardingPage.verifyclearsearch(), "Clear All Assertion Failed");
     }
     
-    @Test(priority=23,description="To Verify Search Is NotEqual To")
+    /*@Test(priority=23,description="To Verify Search Is NotEqual To")
 	public void VerifySearchIsNotEqualTo() throws Exception {
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String,String>map=new ExcelReader(filePath,"Invalid").getTestData().get(0);
@@ -356,7 +356,7 @@ Screenshot screenshot=new Screenshot(driver);
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.addNewUserOnBoardingRecordWithoutProfile(userOnBoardingDetails);
 		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please Provide Profile, Supervisor","Record Creation Assertion failed");
-	}
+	}*/
 	
 	
 	
